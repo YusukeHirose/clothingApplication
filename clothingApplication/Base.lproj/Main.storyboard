@@ -9,10 +9,124 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Edit View Controller-->
+        <scene sceneID="pNf-RI-h7X">
+            <objects>
+                <viewController id="GdX-bO-Z9k" customClass="EditViewController" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fhv-lC-heu"/>
+                        <viewControllerLayoutGuide type="bottom" id="fxm-oW-dVy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rcd-Aa-bwk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VhU-K0-dso">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Vq-c3-spl">
+                                <rect key="frame" x="31" y="172" width="312" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="商品名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhU-uT-k2X">
+                                <rect key="frame" x="31" y="134" width="312" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ブランド名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CbD-aP-qku">
+                                <rect key="frame" x="31" y="404" width="312" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="サイズ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="luo-TT-QK8">
+                                <rect key="frame" x="31" y="462" width="312" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="値段" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAS-kC-Ib8">
+                                <rect key="frame" x="31" y="520" width="312" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqT-X0-8ds">
+                                <rect key="frame" x="253" y="571" width="106" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="tapBtn:" destination="GdX-bO-Z9k" eventType="touchUpInside" id="Hfl-3m-C8I"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日付" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-7h-dkB">
+                                <rect key="frame" x="31" y="80" width="312" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-Ha-PDe">
+                                <rect key="frame" x="31" y="351" width="312" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIi-Cu-scJ">
+                                <rect key="frame" x="16" y="571" width="103" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="tapBack:" destination="GdX-bO-Z9k" eventType="touchUpInside" id="2uO-6s-zbk"/>
+                                    <action selector="tapBackSegue:" destination="GdX-bO-Z9k" eventType="touchUpInside" id="92h-17-SQU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dIT-Eu-7eN"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="blandField" destination="CbD-aP-qku" id="fV4-Sp-coj"/>
+                        <outlet property="categoryField" destination="jbb-Ha-PDe" id="5ZN-KE-BZM"/>
+                        <outlet property="clotheField" destination="OhU-uT-k2X" id="cps-bn-9kk"/>
+                        <outlet property="dateField" destination="1i2-7h-dkB" id="nk6-Xv-NAT"/>
+                        <outlet property="editImage" destination="8Vq-c3-spl" id="yab-Jm-KS8"/>
+                        <outlet property="formView" destination="VhU-K0-dso" id="iqf-s0-RXl"/>
+                        <outlet property="priceField" destination="NAS-kC-Ib8" id="P3C-Vz-5ds"/>
+                        <outlet property="sizeField" destination="luo-TT-QK8" id="iBu-G2-cc0"/>
+                        <segue destination="TBw-Nm-be0" kind="show" identifier="backViewController" id="MNU-Fe-wX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTM-2h-DdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645.60000000000002" y="-2213.3433283358322"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Hcz-zw-Qhg">
             <objects>
-                <viewController title="View Controller" id="TBw-Nm-be0" customClass="ViewController" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="View Controller" id="TBw-Nm-be0" customClass="ViewController" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eoh-kp-eR6"/>
                         <viewControllerLayoutGuide type="bottom" id="x5Q-zB-cEJ"/>
@@ -22,71 +136,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O0G-8N-HDB">
-                                <rect key="frame" x="0.0" y="99" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="2" id="o49-QG-zGn">
-                                    <size key="itemSize" width="172" height="133"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="o49-QG-zGn">
+                                    <size key="itemSize" width="186" height="260"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="we3-Ks-HlM">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="133"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="we3-Ks-HlM" customClass="customCell" customModule="clothingApplication" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="186" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="172" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="186" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AT3-lW-W1C">
-                                                    <rect key="frame" x="8" y="8" width="156" height="117"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AT3-lW-W1C">
+                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="260"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="AT3-lW-W1C" firstAttribute="leading" secondItem="we3-Ks-HlM" secondAttribute="leading" id="0RD-1L-WlI"/>
+                                            <constraint firstAttribute="trailing" secondItem="AT3-lW-W1C" secondAttribute="trailing" id="DLs-bj-RXJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="AT3-lW-W1C" secondAttribute="bottom" id="Zbq-sT-8xe"/>
+                                            <constraint firstItem="AT3-lW-W1C" firstAttribute="top" secondItem="we3-Ks-HlM" secondAttribute="top" id="yT0-la-qxJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="myImageView" destination="AT3-lW-W1C" id="ZHo-R6-7wl"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="TBw-Nm-be0" id="dSN-rg-0hF"/>
                                     <outlet property="delegate" destination="TBw-Nm-be0" id="W0L-Mj-VyB"/>
-                                    <outlet property="prefetchDataSource" destination="TBw-Nm-be0" id="4bn-13-NVb"/>
                                 </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="65h-Rq-yvl"/>
+                    <tabBarItem key="tabBarItem" title="clothe" selectedImage="Clothes-50.png" id="ebS-Mq-lBu"/>
+                    <navigationItem key="navigationItem" id="J6x-La-sPB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myCollectionView" destination="O0G-8N-HDB" id="JYw-2t-Xow"/>
+                        <segue destination="GdX-bO-Z9k" kind="modal" identifier="toEditViewController" id="agf-K9-EkZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTn-0W-da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="-2548.8755622188905"/>
+            <point key="canvasLocation" x="-854" y="-3248"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="6oK-yY-qJE">
-            <objects>
-                <viewController id="RV5-qo-BMW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kF3-MZ-GFt"/>
-                        <viewControllerLayoutGuide type="bottom" id="fdJ-bQ-o6L"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kTS-we-M2S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="CIO-GW-XbB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DX7-a9-Da3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-652" y="-1070"/>
-        </scene>
-        <!--Want List-->
+        <!--want-->
         <scene sceneID="bnk-aY-0O1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hgR-SH-sez" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="fV3-za-Bfw" customClass="WantList" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" id="fV3-za-Bfw" customClass="WantListViewController" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdl-Dg-t7r"/>
                         <viewControllerLayoutGuide type="bottom" id="NGj-UM-3mr"/>
@@ -94,31 +202,174 @@
                     <view key="view" contentMode="scaleToFill" id="hId-b3-1PG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wanted!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIg-7X-PxZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-zD-awF">
+                                <rect key="frame" x="0.0" y="82" width="375" height="536"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="wOd-C0-jjA">
+                                    <size key="itemSize" width="187" height="270"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="p4D-5G-y68" customClass="customCell" customModule="clothingApplication" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="270"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="270"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3rw-p5-VO9">
+                                                    <rect key="frame" x="0.0" y="-15" width="188" height="288"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="myImageView2" destination="3rw-p5-VO9" id="Gmg-gD-zqR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="fV3-za-Bfw" id="Vsh-yw-Giv"/>
+                                    <outlet property="delegate" destination="fV3-za-Bfw" id="nUb-cQ-XcC"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="L0E-ph-V8e"/>
+                    <tabBarItem key="tabBarItem" title="want" selectedImage="Add to Favorites-50.png" id="L0E-ph-V8e"/>
+                    <connections>
+                        <outlet property="myCollectionView2" destination="3bi-zD-awF" id="DiV-eg-Ynn"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgR-SH-sez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="-1827"/>
+            <point key="canvasLocation" x="1383.2" y="-3269.4152923538231"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eQb-Ei-aoM">
             <objects>
-                <tabBarController id="mwr-nK-SJf" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="l8E-6J-fth">
+                <tabBarController id="mwr-nK-SJf" customClass="TabBarController" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="ki.jpeg" id="l8E-6J-fth">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TBw-Nm-be0" kind="relationship" relationship="viewControllers" id="bDO-2O-ykG"/>
-                        <segue destination="fV3-za-Bfw" kind="relationship" relationship="viewControllers" id="6Rw-BC-g9b"/>
-                        <segue destination="RV5-qo-BMW" kind="relationship" relationship="viewControllers" id="7Fx-PV-ZTp"/>
+                        <segue destination="TBw-Nm-be0" kind="relationship" relationship="viewControllers" id="Lik-a5-H7p"/>
+                        <segue destination="em0-rb-s4K" kind="relationship" relationship="viewControllers" id="X9b-Si-hXP"/>
+                        <segue destination="fV3-za-Bfw" kind="relationship" relationship="viewControllers" id="DAc-h0-ETF"/>
+                        <segue destination="C7t-qw-rR5" kind="relationship" relationship="viewControllers" id="r4O-dK-vGM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7o-zB-iD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1634" y="-1827"/>
+            <point key="canvasLocation" x="-1468" y="-2382"/>
+        </scene>
+        <!--camera-->
+        <scene sceneID="9JL-SY-heh">
+            <objects>
+                <viewController id="C7t-qw-rR5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FT5-br-FJm"/>
+                        <viewControllerLayoutGuide type="bottom" id="rbm-Zv-TrK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WkW-Yt-hBE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="camera" selectedImage="Screenshot-50.png" id="qhJ-gy-PLt"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJ1-KX-qQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1468" y="-1612"/>
+        </scene>
+        <!--bland-->
+        <scene sceneID="Gir-LQ-5Vi">
+            <objects>
+                <viewController storyboardIdentifier="BlandViewController" id="em0-rb-s4K" customClass="BlandViewController" customModule="clothingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IPc-KK-6oh"/>
+                        <viewControllerLayoutGuide type="bottom" id="EGX-Ab-wcN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eOR-nY-bQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gxq-yc-qlP">
+                                <rect key="frame" x="0.0" y="80" width="375" height="530"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zwV-OI-lSu">
+                                    <size key="itemSize" width="181" height="260"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="paa-rH-Z8A" customClass="customCell" customModule="clothingApplication" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="260"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="260"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdp-PG-DTG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="260"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="VLy-Pz-VB7" appends="YES" id="NLp-kv-gLq"/>
+                                                    </connections>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="myImageView3" destination="vdp-PG-DTG" id="tB3-or-HYj"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="em0-rb-s4K" id="Kkq-hK-PBI"/>
+                                    <outlet property="delegate" destination="em0-rb-s4K" id="RPq-sF-mfb"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="bland" selectedImage="Player Change-50.png" id="6WZ-Yg-yXm"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myCollectionView3" destination="gxq-yc-qlP" id="Vue-g3-Oqw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csY-LQ-5Zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VLy-Pz-VB7"/>
+            </objects>
+            <point key="canvasLocation" x="408.80000000000001" y="-3269.4152923538231"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add to Favorites-50.png" width="30" height="30"/>
+        <image name="Clothes-50.png" width="30" height="30"/>
+        <image name="Player Change-50.png" width="30" height="30"/>
+        <image name="Screenshot-50.png" width="30" height="30"/>
+        <image name="ki.jpeg" width="80" height="49"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MNU-Fe-wX0"/>
+    </inferredMetricsTieBreakers>
 </document>
