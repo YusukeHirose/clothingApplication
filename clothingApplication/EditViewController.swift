@@ -40,7 +40,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     var selectedImg: UIImage!
 
-    var list:[NSDictionary] = NSArray() as! [NSDictionary]
+    var photlist:[NSDictionary] = NSArray() as! [NSDictionary]
     
     
     @IBOutlet weak var formView: UIView!
@@ -58,6 +58,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017-02-21"],["category":"パーカー"],["price":"1200"]]
         
         //userDefaultから保存した配列を取り出す
         var myDefault = UserDefaults.standard
@@ -221,7 +223,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //データを一括取得
             let fetchResults = try viewContext.fetch(query)
             //一旦配列を空にする(初期化)
-            list = NSArray() as! [NSDictionary]
+            photlist = NSArray() as! [NSDictionary]
             for result : AnyObject in fetchResults{
                 let photDate: String? = result.value(forKey: "phot") as? String
                 let clothenameDate: String? = result.value(forKey: "clothename") as? String
@@ -231,7 +233,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                 let categoryDate: String? = result.value(forKey:"category") as? String
                 let priceDate: Int16? = result.value(forKey: "price") as? Int16
                 
-              list.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,"price":priceField.text])
+              photlist.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,"price":priceField.text])
                 
 //                list.append(photDate!)
 //                list.append(clothenameDate!)
@@ -243,7 +245,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
 
             }
         }catch{
-            print(list)
+            
         }
 
     

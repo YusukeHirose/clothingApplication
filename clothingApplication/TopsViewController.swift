@@ -24,9 +24,9 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     //let photos = ["ayala","moalboal","oslob"]
     var photList2 = NSMutableArray()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         var myDefault = UserDefaults.standard
         
@@ -51,11 +51,11 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
 //        // Tag番号を使ってImageViewのインスタンス生成
      let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
 //      // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-      let cellImage = UIImage(named: [(indexPath as NSIndexPath).row])
+      let cellImage = UIImage(named: photList2[(indexPath as NSIndexPath).row] as! String)
 //       // UIImageをUIImageViewのimageとして設定
        imageView.image = cellImage
 //
-        var photListDate:NSDictionary = photList2[indexPath.Item] as! NSDictionary
+        var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
         //sample45から
         var photListDictionary:NSDictionary = photList2[indexPath.row] as! NSDictionary
         return testCell
@@ -64,7 +64,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // [indexPath.row] から画像名を探し、UImage を設定
-        selectedImage = UIImage(named: photo[(indexPath as NSIndexPath).row])
+        selectedImage = UIImage(named: photList2[(indexPath as NSIndexPath).row] as! String)
         if selectedImage != nil {
             // SubViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "toEditViewController",sender: nil)
@@ -95,7 +95,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 3;
+        return 1;
     }
     
     

@@ -28,6 +28,7 @@
 		CE4B55B51E4B4BF000003686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4B55B31E4B4BF000003686 /* LaunchScreen.storyboard */; };
 		CE4B55C01E4B4BF000003686 /* clothingApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B55BF1E4B4BF000003686 /* clothingApplicationTests.swift */; };
 		CE4B55CB1E4B4BF000003686 /* clothingApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B55CA1E4B4BF000003686 /* clothingApplicationUITests.swift */; };
+		CE59C51C1E5C38D7000BD499 /* noimages.png in Resources */ = {isa = PBXBuildFile; fileRef = CE59C51B1E5C38D7000BD499 /* noimages.png */; };
 		CE5C7C3C1E515E3F00D5A433 /* BlandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */; };
 		CE5C7C3E1E5160E500D5A433 /* oslob.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */; };
 		CE7E296D1E531DFE005B78B7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E296C1E531DFE005B78B7 /* EditViewController.swift */; };
@@ -94,6 +95,7 @@
 		CE4B55C61E4B4BF000003686 /* clothingApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clothingApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4B55CA1E4B4BF000003686 /* clothingApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingApplicationUITests.swift; sourceTree = "<group>"; };
 		CE4B55CC1E4B4BF000003686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE59C51B1E5C38D7000BD499 /* noimages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noimages.png; path = ../../../../Desktop/noimages.png; sourceTree = "<group>"; };
 		CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlandViewController.swift; sourceTree = "<group>"; };
 		CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oslob.jpeg; sourceTree = "<group>"; };
 		CE7E296C1E531DFE005B78B7 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */,
 				CE7E296C1E531DFE005B78B7 /* EditViewController.swift */,
 				CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */,
+				CE59C51B1E5C38D7000BD499 /* noimages.png */,
 				CE4B55AE1E4B4BF000003686 /* Main.storyboard */,
 				CE4B55B11E4B4BF000003686 /* Assets.xcassets */,
 				CE4B55B31E4B4BF000003686 /* LaunchScreen.storyboard */,
@@ -362,6 +365,7 @@
 				CE4B55B51E4B4BF000003686 /* LaunchScreen.storyboard in Resources */,
 				CE48AF241E50C01E00404543 /* Clothes-50.png in Resources */,
 				CE5C7C3E1E5160E500D5A433 /* oslob.jpeg in Resources */,
+				CE59C51C1E5C38D7000BD499 /* noimages.png in Resources */,
 				CE48AF261E50C17E00404543 /* Add to Favorites-50.png in Resources */,
 				CE48AF201E50BB8500404543 /* huku.png in Resources */,
 				CE4B55B21E4B4BF000003686 /* Assets.xcassets in Resources */,
