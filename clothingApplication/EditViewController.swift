@@ -34,7 +34,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     //セグエ遷移(横から画面が出る)
     @IBAction func tapBackSegue(_ sender: UIButton) {
-        performSegue(withIdentifier: "backViewController", sender: nil)
+        performSegue(withIdentifier: "ViewController", sender: nil)
         
     }
     
@@ -100,6 +100,9 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         upView.addSubview(closeButton)
         //キーボードのアクセサリービューを設定する
         blandField.inputAccessoryView = upView
+        clotheField.inputAccessoryView = upView
+        sizeField.inputAccessoryView = upView
+        priceField.inputAccessoryView = upView
         
 
         
@@ -119,6 +122,21 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
         })
         
+        clotheField.resignFirstResponder()
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+        })
+        
+        sizeField.resignFirstResponder()
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+        })
+        
+        priceField.resignFirstResponder()
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+        })
+
+
+
+        
         //日付のview
         hideDatePickerView()
        switch textField.tag{
@@ -127,15 +145,18 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //キーボード表示
             return true
        case 2:
-        return true
+            return true
        case 3:
-        return true
-        case 4:
-        case 5:
+            return true
+       case 4:
+            return true
+       case 5:
             //日付
             //アニメーションでDatePickerが載ったviewを表示
 
             disprayDatePickerView()
+            return false
+       case 6:
             return false
         default:
             return true
@@ -173,6 +194,10 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     //キーボードを閉じる
     func closeKeyboad(sender:UIButton){
         blandField.resignFirstResponder()
+        clotheField.resignFirstResponder()
+        sizeField.resignFirstResponder()
+        priceField.resignFirstResponder()
+    
     }
     
     //すでに存在するデータの読み込み処理
@@ -261,6 +286,38 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             self.present(picker, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func launchCamera(_ sender: UIBarButtonItem) {
+        //カメラかどうか判別するための情報を取得
+        let camera = UIImagePickerControllerSourceType.camera
+        //このアプリが起動されているデバイスにカメラ機能がついているかどうか判定
+        if UIImagePickerController.isSourceTypeAvailable(camera){
+            let picker = UIImagePickerController()
+            picker.sourceType = camera
+            
+            picker.delegate = self
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+
+            self.present(picker,animated: true, completion: nil)
+        }
+        
+        //撮影終了後発動するメゾット
+        func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [String : Any]){
+            //撮影した写真を代入
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            //imageViewに撮影した写真を設定
+            editImage.image = image
+            
+            //自分のデバイスに写真を保存
+            UIImageWriteToSavedPhotosAlbum(image,nil ,nil ,nil )
+            
+            //モーダルで表示した写真撮影用画面を閉じる(前の画面に戻る)
+            dismiss(animated: true)}
+    }
+
+    
+    
     /*
     // MARK: - Navigation
 

@@ -22,7 +22,7 @@
 		CE48AF2A1E50C49800404543 /* Screenshot-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CE48AF291E50C49800404543 /* Screenshot-50.png */; };
 		CE48AF2C1E50C79E00404543 /* ki.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE48AF2B1E50C79E00404543 /* ki.jpeg */; };
 		CE4B55AB1E4B4BF000003686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B55AA1E4B4BF000003686 /* AppDelegate.swift */; };
-		CE4B55AD1E4B4BF000003686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B55AC1E4B4BF000003686 /* ViewController.swift */; };
+		CE4B55AD1E4B4BF000003686 /* TopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B55AC1E4B4BF000003686 /* TopsViewController.swift */; };
 		CE4B55B01E4B4BF000003686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4B55AE1E4B4BF000003686 /* Main.storyboard */; };
 		CE4B55B21E4B4BF000003686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4B55B11E4B4BF000003686 /* Assets.xcassets */; };
 		CE4B55B51E4B4BF000003686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4B55B31E4B4BF000003686 /* LaunchScreen.storyboard */; };
@@ -31,6 +31,13 @@
 		CE5C7C3C1E515E3F00D5A433 /* BlandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */; };
 		CE5C7C3E1E5160E500D5A433 /* oslob.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */; };
 		CE7E296D1E531DFE005B78B7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E296C1E531DFE005B78B7 /* EditViewController.swift */; };
+		CEB6BA601E5A8F630063B87C /* cameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */; };
+		CEB6BA621E5AE3D90063B87C /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */; };
+		CEB6BA641E5AE4E60063B87C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */; };
+		CEB6BA661E5AF2F20063B87C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA651E5AF2F20063B87C /* ViewController.swift */; };
+		CEB6BA681E5AF6D40063B87C /* PantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */; };
+		CEB6BA6E1E5B4FCF0063B87C /* jktViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA6D1E5B4FCF0063B87C /* jktViewController.swift */; };
+		CEB6BA701E5B50110063B87C /* outerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA6F1E5B50110063B87C /* outerViewController.swift */; };
 		CED4A5441E4EFE5400E5CD02 /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4A5431E4EFE5400E5CD02 /* customCell.swift */; };
 		CED4A5461E4F017400E5CD02 /* Dog2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED4A5451E4F017400E5CD02 /* Dog2x.jpg */; };
 		F558D6EED9F06AC4EA3FD888 /* Pods_clothingApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11012C84B19CC1537B7268F5 /* Pods_clothingApplicationTests.framework */; };
@@ -76,7 +83,7 @@
 		CE48AF2B1E50C79E00404543 /* ki.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ki.jpeg; sourceTree = "<group>"; };
 		CE4B55A71E4B4BF000003686 /* clothingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clothingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4B55AA1E4B4BF000003686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE4B55AC1E4B4BF000003686 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE4B55AC1E4B4BF000003686 /* TopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopsViewController.swift; sourceTree = "<group>"; };
 		CE4B55AF1E4B4BF000003686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4B55B11E4B4BF000003686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4B55B41E4B4BF000003686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,6 +97,13 @@
 		CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlandViewController.swift; sourceTree = "<group>"; };
 		CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oslob.jpeg; sourceTree = "<group>"; };
 		CE7E296C1E531DFE005B78B7 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraViewController.swift; sourceTree = "<group>"; };
+		CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = "../../../../Downloads/PageMenu-master 5/Classes/CAPSPageMenu.swift"; sourceTree = "<group>"; };
+		CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
+		CEB6BA651E5AF2F20063B87C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsViewController.swift; sourceTree = "<group>"; };
+		CEB6BA6D1E5B4FCF0063B87C /* jktViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jktViewController.swift; sourceTree = "<group>"; };
+		CEB6BA6F1E5B50110063B87C /* outerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outerViewController.swift; sourceTree = "<group>"; };
 		CED4A5431E4EFE5400E5CD02 /* customCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
 		CED4A5451E4F017400E5CD02 /* Dog2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2x.jpg; sourceTree = "<group>"; };
 		F4A45D7E5D74A81CC0D26529 /* Pods-clothingApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clothingApplicationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clothingApplicationUITests/Pods-clothingApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,7 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				CE4B55AA1E4B4BF000003686 /* AppDelegate.swift */,
-				CE4B55AC1E4B4BF000003686 /* ViewController.swift */,
+				CEB6BA651E5AF2F20063B87C /* ViewController.swift */,
+				CE4B55AC1E4B4BF000003686 /* TopsViewController.swift */,
+				CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */,
+				CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */,
 				CE4B55AE1E4B4BF000003686 /* Main.storyboard */,
 				CE4B55B11E4B4BF000003686 /* Assets.xcassets */,
 				CE4B55B31E4B4BF000003686 /* LaunchScreen.storyboard */,
@@ -194,6 +211,10 @@
 				CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */,
 				CE7E296C1E531DFE005B78B7 /* EditViewController.swift */,
 				CE07998D1E544A410025B577 /* CApplication.xcdatamodeld */,
+				CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */,
+				CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */,
+				CEB6BA6D1E5B4FCF0063B87C /* jktViewController.swift */,
+				CEB6BA6F1E5B50110063B87C /* outerViewController.swift */,
 			);
 			path = clothingApplication;
 			sourceTree = "<group>";
@@ -510,10 +531,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE07998F1E544A410025B577 /* CApplication.xcdatamodeld in Sources */,
+				CEB6BA681E5AF6D40063B87C /* PantsViewController.swift in Sources */,
 				CE48AF181E509C8000404543 /* WantListViewController.swift in Sources */,
-				CE4B55AD1E4B4BF000003686 /* ViewController.swift in Sources */,
+				CEB6BA621E5AE3D90063B87C /* CAPSPageMenu.swift in Sources */,
+				CEB6BA641E5AE4E60063B87C /* ContentsViewController.swift in Sources */,
+				CEB6BA661E5AF2F20063B87C /* ViewController.swift in Sources */,
+				CE4B55AD1E4B4BF000003686 /* TopsViewController.swift in Sources */,
+				CEB6BA601E5A8F630063B87C /* cameraViewController.swift in Sources */,
 				CE0799D61E5541590025B577 /* UserDate+CoreDataClass.swift in Sources */,
 				CE5C7C3C1E515E3F00D5A433 /* BlandViewController.swift in Sources */,
+				CEB6BA6E1E5B4FCF0063B87C /* jktViewController.swift in Sources */,
+				CEB6BA701E5B50110063B87C /* outerViewController.swift in Sources */,
 				CE48AF1C1E50B50500404543 /* TabBarController.swift in Sources */,
 				CED4A5441E4EFE5400E5CD02 /* customCell.swift in Sources */,
 				CE4B55AB1E4B4BF000003686 /* AppDelegate.swift in Sources */,
@@ -673,6 +701,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SY56KLK4UK;
 				INFOPLIST_FILE = clothingApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yusukehirose.clothingApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -687,6 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SY56KLK4UK;
 				INFOPLIST_FILE = clothingApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yusukehirose.clothingApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";

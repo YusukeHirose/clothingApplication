@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "clothingApplication/EditViewController.swift"
-            timestampString = "509216094.975745"
+            timestampString = "509250980.833541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "read()"
             landmarkType = "7">
          </BreakpointContent>
