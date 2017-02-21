@@ -8,83 +8,10 @@
 
 import UIKit
 import CoreData
-class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class TopsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    // インスタンス配列
-    var controllerArray : [UIViewController] = []
-    var pageMenu : CAPSPageMenu?
-    
-    // サイト情報
-    let category:[Dictionary<String,String>] = [
-        ["title":"トップス","storyboadID":"ViewController"],
-        ["title":"パンツ"],
-        ["title":"ジャケット"],
-        ["title":"パンツ"],
-        ["title":"シューズ"]
-    ]
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        for site in category {
-            
-            var storyboardID:String = site["storyboadID"]!
-            switch storyboardID{
-                case "topsViewController":
-                    var controller:topsViewController = self.storyboard?.instantiateInitialViewController(withIdentifier:"topsViewController") as! topsViewController
-                
-                    controller.title = site["title"]!
-                contorllerArray.append(controller)
-            default:
-                var controller:ContentsViewController = ContentsViewController(nibName:"ContentsViewController",bundle:nil)
-                controller.title = site["title"]!
-                
-                controller.webView = UIWebView(frame : self.view.bounds)
-                //controller.webView.delegate = controller
-                controller.view.addSubview(controller.webView)
-                //let req = URLRequest(url: URL(string:controller.siteUrl!)!)
-                // controller.webView.loadRequest(req)
-                controllerArray.append(controller)
-
-
-            }
-            
-                        //controller.siteUrl = site["url"]!
-            
-            
-            
-        }
-        
-        // Customize menu (Optional)
-        let parameters: [CAPSPageMenuOption] = [
-            .scrollMenuBackgroundColor(UIColor.black),
-            .viewBackgroundColor(UIColor.white),
-            .bottomMenuHairlineColor(UIColor.white),
-            .selectionIndicatorColor(UIColor.blue),
-            .menuItemFont(UIFont(name: "HelveticaNeue", size: 20.0)!),
-            .centerMenuItems(true),
-            .menuItemWidthBasedOnTitleTextWidth(true),
-            .menuMargin(16),
-            .selectedMenuItemLabelColor(UIColor.blue),
-            .unselectedMenuItemLabelColor(UIColor.white)
-            
-        ]
-        
-        // Initialize scroll menu
-        
-        let rect = CGRect(origin: CGPoint(x: 0,y :25), size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: rect, pageMenuOptions: parameters)
-        
-        self.addChildViewController(pageMenu!)
-        self.view.addSubview(pageMenu!.view)
-        
-        pageMenu!.didMove(toParentViewController: self)
-        
-        }
-    
-
+   
     
 
     
@@ -94,8 +21,20 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         //let myApp = UIApplication.shared.delegate as! AppDelegate
     }
     
-    let photos = ["ayala","moalboal","oslob"]
+    //let photos = ["ayala","moalboal","oslob"]
+    var photList2 = NSMutableArray()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    
+    var myDefault = UserDefaults.standard
+    
+    if(myDefault.object(forKey: "photList") != nil){
+    //データを呼び出す
+    photList2 = NSMutableArray(array:myDefault.object(forKey: "photList") as! NSMutableArray)
+        }
+    }
     var selectedImage: UIImage?
     
     
