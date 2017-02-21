@@ -40,7 +40,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     var selectedImg: UIImage!
 
-    var list:[String] = NSArray() as! [String]
+    var list:[NSDictionary] = NSArray() as! [NSDictionary]
     
     
     @IBOutlet weak var formView: UIView!
@@ -53,9 +53,18 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     //datePickerを隠すためのボタン
     let closeBtnDatePicker:UIButton = UIButton(type: .system)
+    
+    var photList = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //userDefaultから保存した配列を取り出す
+        var myDefault = UserDefaults.standard
+        
+        if (myDefault.object(forKey: "photList") != nil){
+            photList = NSMutableArray(array: myDefault.object(forKey: "photList") as! NSMutableArray)
+        }
         
         //日付が変わったときのイベントをdatePickerに設定
         diaryDatePicker.addTarget(self, action: #selector(showDateSelected(sender:)), for: .valueChanged)
@@ -212,7 +221,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //データを一括取得
             let fetchResults = try viewContext.fetch(query)
             //一旦配列を空にする(初期化)
-            list = NSArray() as! [String]
+            list = NSArray() as! [NSDictionary]
             for result : AnyObject in fetchResults{
                 let photDate: String? = result.value(forKey: "phot") as? String
                 let clothenameDate: String? = result.value(forKey: "clothename") as? String
@@ -221,17 +230,20 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                 let dateDate: String? = result.value(forKey:"date") as? String
                 let categoryDate: String? = result.value(forKey:"category") as? String
                 let priceDate: Int16? = result.value(forKey: "price") as? Int16
-                list.append(photDate!)
-                list.append(clothenameDate!)
-                list.append(sizeDate!)
-                list.append(blandDate!)
-                list.append(dateDate!)
-                list.append(categoryDate!)
-                list.append(priceDate! as! String)
+                
+              list.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,"price":priceField.text])
+                
+//                list.append(photDate!)
+//                list.append(clothenameDate!)
+//                list.append(sizeDate!)
+//                list.append(blandDate!)
+//                list.append(dateDate!)
+//                list.append(categoryDate!)
+//                list.append(priceDate! as! String)
 
             }
         }catch{
-            
+            print(list)
         }
 
     
@@ -316,7 +328,6 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             dismiss(animated: true)}
     }
 
-    
     
     /*
     // MARK: - Navigation

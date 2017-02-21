@@ -26,38 +26,45 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
-    var myDefault = UserDefaults.standard
-    
-    if(myDefault.object(forKey: "photList") != nil){
-    //データを呼び出す
-    photList2 = NSMutableArray(array:myDefault.object(forKey: "photList") as! NSMutableArray)
+        
+        
+        var myDefault = UserDefaults.standard
+        
+        if(myDefault.object(forKey: "photList") != nil){
+            //データを呼び出す
+            photList2 = NSMutableArray(array:myDefault.object(forKey: "photList") as! NSMutableArray)
         }
+        
+        
     }
+    
+    
     var selectedImage: UIImage?
     
-    
-       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
-        // Cell はストーリーボードで設定したセルのID
-        let testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        
-        // Tag番号を使ってImageViewのインスタンス生成
-        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
-        // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-        let cellImage = UIImage(named: photos[(indexPath as NSIndexPath).row])
-        // UIImageをUIImageViewのimageとして設定
-        imageView.image = cellImage
-        
-        
+//        // Cell はストーリーボードで設定したセルのID
+       let testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+//      
+//        // Tag番号を使ってImageViewのインスタンス生成
+     let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
+//      // 画像配列の番号で指定された要素の名前の画像をUIImageとする
+      let cellImage = UIImage(named: [(indexPath as NSIndexPath).row])
+//       // UIImageをUIImageViewのimageとして設定
+       imageView.image = cellImage
+//
+        var photListDate:NSDictionary = photList2[indexPath.Item] as! NSDictionary
+        //sample45から
+        var photListDictionary:NSDictionary = photList2[indexPath.row] as! NSDictionary
         return testCell
     }
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // [indexPath.row] から画像名を探し、UImage を設定
-        selectedImage = UIImage(named: photos[(indexPath as NSIndexPath).row])
+        selectedImage = UIImage(named: photo[(indexPath as NSIndexPath).row])
         if selectedImage != nil {
             // SubViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "toEditViewController",sender: nil)
