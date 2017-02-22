@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,10 +49,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Vq-c3-spl">
+                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Vq-c3-spl">
                                 <rect key="frame" x="31" y="172" width="312" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="og9-PZ-mfc" appends="YES" id="Xni-EN-If3"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="商品名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhU-uT-k2X">
                                 <rect key="frame" x="31" y="134" width="312" height="30"/>
@@ -94,6 +96,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="enterDate:" destination="GdX-bO-Z9k" eventType="touchUpInside" id="qS1-OR-ppk"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-Ha-PDe">
                                 <rect key="frame" x="31" y="351" width="312" height="30"/>
@@ -139,8 +144,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTM-2h-DdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="og9-PZ-mfc">
+                    <connections>
+                        <action selector="tapImage:" destination="GdX-bO-Z9k" id="tkD-Oy-uPE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="645.60000000000002" y="-2213.3433283358322"/>
+            <point key="canvasLocation" x="-210" y="-1086"/>
         </scene>
         <!--Contents View Controller-->
         <scene sceneID="vzf-Vd-Vl3">
@@ -205,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ic7-oI-CPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-855" y="-3999"/>
+            <point key="canvasLocation" x="-121" y="-3249"/>
         </scene>
         <!--Jkt View Controller-->
         <scene sceneID="7I6-zo-U4W">
@@ -223,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDK-na-Mt3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="-4000"/>
+            <point key="canvasLocation" x="599" y="-3249"/>
         </scene>
         <!--Outer View Controller-->
         <scene sceneID="3kg-mu-0n2">
@@ -241,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kko-3Z-7hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-4000"/>
+            <point key="canvasLocation" x="1311" y="-3249"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7Eb-ni-4LK">
@@ -259,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMV-T7-jcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="-4001"/>
+            <point key="canvasLocation" x="2055" y="-3249"/>
         </scene>
         <!--Tops View Controller-->
         <scene sceneID="Hcz-zw-Qhg">
@@ -273,7 +283,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O0G-8N-HDB">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O0G-8N-HDB">
                                 <rect key="frame" x="0.0" y="28" width="375" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="o49-QG-zGn">
@@ -283,28 +293,19 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="we3-Ks-HlM" customClass="customCell" customModule="clothingApplication" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="we3-Ks-HlM">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="285"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="183" height="285"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AT3-lW-W1C">
-                                                    <rect key="frame" x="-2" y="8" width="186" height="260"/>
-                                                    <gestureRecognizers/>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfX-zR-QOC">
+                                                    <rect key="frame" x="0.0" y="8" width="175" height="269"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="AT3-lW-W1C" firstAttribute="leading" secondItem="we3-Ks-HlM" secondAttribute="leadingMargin" constant="-10" id="FWs-Ji-CXm"/>
-                                            <constraint firstItem="AT3-lW-W1C" firstAttribute="centerX" secondItem="we3-Ks-HlM" secondAttribute="centerX" id="aoq-v9-KFS"/>
-                                            <constraint firstItem="AT3-lW-W1C" firstAttribute="top" secondItem="we3-Ks-HlM" secondAttribute="topMargin" id="sZT-6M-hCC"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="AT3-lW-W1C" secondAttribute="bottom" constant="9" id="u0g-x1-19L"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="myImageView" destination="AT3-lW-W1C" id="ZHo-R6-7wl"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -316,10 +317,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="O0G-8N-HDB" firstAttribute="top" secondItem="Eoh-kp-eR6" secondAttribute="bottom" constant="60" id="Aew-go-ao5"/>
-                            <constraint firstItem="O0G-8N-HDB" firstAttribute="bottom" secondItem="x5Q-zB-cEJ" secondAttribute="top" id="Y2E-SM-RtN"/>
-                            <constraint firstItem="O0G-8N-HDB" firstAttribute="leading" secondItem="fhH-PP-zKM" secondAttribute="leading" id="ebV-dT-72F"/>
-                            <constraint firstAttribute="trailing" secondItem="O0G-8N-HDB" secondAttribute="trailing" id="ejw-rJ-9TR"/>
+                            <constraint firstItem="O0G-8N-HDB" firstAttribute="leading" secondItem="fhH-PP-zKM" secondAttribute="leading" id="cfz-87-QZj"/>
+                            <constraint firstItem="O0G-8N-HDB" firstAttribute="bottom" secondItem="x5Q-zB-cEJ" secondAttribute="top" id="fd5-ye-Gam"/>
+                            <constraint firstAttribute="trailing" secondItem="O0G-8N-HDB" secondAttribute="trailing" id="hmP-xW-UWn"/>
+                            <constraint firstItem="O0G-8N-HDB" firstAttribute="top" secondItem="Eoh-kp-eR6" secondAttribute="bottom" constant="8" symbolic="YES" id="j9o-dl-CXR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J6x-La-sPB"/>
@@ -397,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgR-SH-sez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1383.2" y="-3269.4152923538231"/>
+            <point key="canvasLocation" x="174" y="-1826"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eQb-Ei-aoM">
@@ -417,7 +418,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7o-zB-iD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1468" y="-2382"/>
+            <point key="canvasLocation" x="-1879" y="-2299"/>
         </scene>
         <!--camera-->
         <scene sceneID="9JL-SY-heh">
@@ -445,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJ1-KX-qQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1468" y="-1612.4437781109445"/>
+            <point key="canvasLocation" x="-1431" y="-1165"/>
         </scene>
         <!--bland-->
         <scene sceneID="Gir-LQ-5Vi">
@@ -509,7 +510,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csY-LQ-5Zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VLy-Pz-VB7"/>
             </objects>
-            <point key="canvasLocation" x="408.80000000000001" y="-3269.4152923538231"/>
+            <point key="canvasLocation" x="174" y="-2468"/>
         </scene>
     </scenes>
     <resources>

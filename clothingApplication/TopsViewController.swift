@@ -24,49 +24,89 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     //let photos = ["ayala","moalboal","oslob"]
     var photList2 = NSMutableArray()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var myDefault = UserDefaults.standard
+        let myDefault = UserDefaults.standard
         
-        if(myDefault.object(forKey: "photList") != nil){
-            //データを呼び出す
-            photList2 = NSMutableArray(array:myDefault.object(forKey: "photList") as! NSMutableArray)
+              print(photList2)
+        
+      read()
+    }
+    
+    //すでに存在するデータの読み込み処理
+    func read(){
+        //AppDelegateを使う用意をしておく
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let viewContext = appDelegate.persistentContainer.viewContext
+        //どのエンティティからdataを取得してくるか設定
+        let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+        
+        do{
+            //データを一括取得
+            let fetchResults = try viewContext.fetch(query)
+            //一旦配列を空にする(初期化)
+            photList2 = NSMutableArray()
+            for result : AnyObject in fetchResults{
+                var photDate: String? = result.value(forKey: "phot") as? String
+                
+                
+            }
+            photList2[0] = ["phot":"noimages.png"]
+            
+        }catch{
+            
         }
         
         
     }
+
     
     
-    var selectedImage: UIImage?
+   var selectedImage: String = ""
     
 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
+        
 //        // Cell はストーリーボードで設定したセルのID
        let testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
 //      
-//        // Tag番号を使ってImageViewのインスタンス生成
-     let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
+       // Tag番号を使ってImageViewのインスタンス生成
+    let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
 //      // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-      let cellImage = UIImage(named: photList2[(indexPath as NSIndexPath).row] as! String)
-//       // UIImageをUIImageViewのimageとして設定
-       imageView.image = cellImage
-//
+    //
+        
+        
+        
         var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
         //sample45から
+        var phot:String = photListDate["phot"]! as! String
+
+        let cellImage = UIImage(named: phot)
+        //       // UIImageをUIImageViewのimageとして設定
+        imageView.image = cellImage
+
+        
         var photListDictionary:NSDictionary = photList2[indexPath.row] as! NSDictionary
-        return testCell
+        
+    
+            return testCell
+        
+        
     }
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
+        //sample45から
+        var phot:String = photListDate["phot"]! as! String
+        
         // [indexPath.row] から画像名を探し、UImage を設定
-        selectedImage = UIImage(named: photList2[(indexPath as NSIndexPath).row] as! String)
+        selectedImage =  phot
         if selectedImage != nil {
-            // SubViewController へ遷移するために Segue を呼び出す
+           //  SubViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "toEditViewController",sender: nil)
         }
         
@@ -74,7 +114,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     // Segue 準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if (segue.identifier == "toEditViewContlloer") {
+        if (segue.identifier == "toEditViewController") {
             let subVC: EditViewController = (segue.destination as? EditViewController)!
             // EditViewController のselectedImgに選択された画像を設定する
             subVC.selectedImg = selectedImage

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Photos
 class EditViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate{
 
     @IBOutlet weak var editImage: UIImageView!
@@ -38,7 +39,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
     }
     
-    var selectedImg: UIImage!
+    var selectedImg: String!
 
     var photlist:[NSDictionary] = NSArray() as! [NSDictionary]
     
@@ -61,12 +62,6 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
         photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017-02-21"],["category":"パーカー"],["price":"1200"]]
         
-        //userDefaultから保存した配列を取り出す
-        var myDefault = UserDefaults.standard
-        
-        if (myDefault.object(forKey: "photList") != nil){
-            photList = NSMutableArray(array: myDefault.object(forKey: "photList") as! NSMutableArray)
-        }
         
         //日付が変わったときのイベントをdatePickerに設定
         diaryDatePicker.addTarget(self, action: #selector(showDateSelected(sender:)), for: .valueChanged)
@@ -117,7 +112,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
 
         
-        editImage.image = selectedImg
+        editImage.image = UIImage(named: selectedImg)
         
         read()
     }
@@ -161,14 +156,6 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             return true
        case 4:
             return true
-       case 5:
-            //日付
-            //アニメーションでDatePickerが載ったviewを表示
-
-            disprayDatePickerView()
-            return false
-       case 6:
-            return false
         default:
             return true
             }
@@ -182,8 +169,11 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     }
     
     //DatePickerのviewを表示する
+    @IBAction func enterDate(_ sender: UITextField) {
+    
     func disprayDatePickerView(){
         UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y: self.view.frame.size.height - self.baseView.frame.height)},completion:{finished in print("DatePickerが現れました")})
+        }
     }
     
     //DatePickerが載ったviewを隠す
@@ -225,23 +215,17 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //一旦配列を空にする(初期化)
             photlist = NSArray() as! [NSDictionary]
             for result : AnyObject in fetchResults{
-                let photDate: String? = result.value(forKey: "phot") as? String
-                let clothenameDate: String? = result.value(forKey: "clothename") as? String
-                let sizeDate: String? = result.value(forKey:"size") as? String
-                let blandDate: String? = result.value(forKey:"blandname") as? String
-                let dateDate: String? = result.value(forKey:"date") as? String
-                let categoryDate: String? = result.value(forKey:"category") as? String
-                let priceDate: Int16? = result.value(forKey: "price") as? Int16
+                var photDate: String? = result.value(forKey: "phot") as? String
+                var clothenameDate: String? = result.value(forKey: "clothename") as? String
+                var sizeDate: String? = result.value(forKey:"size") as? String
+                var blandDate: String? = result.value(forKey:"blandname") as? String
+                var dateDate: String? = result.value(forKey:"date") as? String
+                var categoryDate: String? = result.value(forKey:"category") as? String
+                var priceDate: Int16? = result.value(forKey: "price") as? Int16
                 
               photlist.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,"price":priceField.text])
                 
-//                list.append(photDate!)
-//                list.append(clothenameDate!)
-//                list.append(sizeDate!)
-//                list.append(blandDate!)
-//                list.append(dateDate!)
-//                list.append(categoryDate!)
-//                list.append(priceDate! as! String)
+
 
             }
         }catch{
@@ -282,11 +266,10 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     
     
+
+    @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
     
     
-    
-    @IBAction func tapImage(_ sender: Any) {
-        
        // 画像タップでライブラリを呼び出す
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
@@ -295,13 +278,44 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
             picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             
-           
+            //トリミング
+            picker.allowsEditing = true
             
             self.present(picker, animated: true, completion: nil)
         }
+    
     }
     
-    @IBAction func launchCamera(_ sender: UIBarButtonItem) {
+         //ライブラリで写真を選んだ後
+    func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]! as AnyObject
+        
+        let strURL:String = assetURL.description
+        
+        print(strURL)
+        
+        
+        // ユーザーデフォルトを用意する
+        let myDefault = UserDefaults.standard
+        
+        // データを書き込んで
+        myDefault.set(strURL, forKey: "selectedPhotoURL")
+        
+        // 即反映させる
+        myDefault.synchronize()
+        
+        
+        
+        //閉じる処理
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
+
+    
+    
+    func launchCamera(_ sender: UIBarButtonItem) {
         //カメラかどうか判別するための情報を取得
         let camera = UIImagePickerControllerSourceType.camera
         //このアプリが起動されているデバイスにカメラ機能がついているかどうか判定
@@ -315,21 +329,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             self.present(picker,animated: true, completion: nil)
         }
         
-        //撮影終了後発動するメゾット
-        func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [String : Any]){
-            //撮影した写真を代入
-            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-            
-            //imageViewに撮影した写真を設定
-            editImage.image = image
-            
-            //自分のデバイスに写真を保存
-            UIImageWriteToSavedPhotosAlbum(image,nil ,nil ,nil )
-            
-            //モーダルで表示した写真撮影用画面を閉じる(前の画面に戻る)
-            dismiss(animated: true)}
     }
-
     
     /*
     // MARK: - Navigation
