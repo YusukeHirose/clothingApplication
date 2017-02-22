@@ -284,6 +284,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             self.present(picker, animated: true, completion: nil)
         }
     
+        
     }
     
          //ライブラリで写真を選んだ後
@@ -296,7 +297,6 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
         print(strURL)
         
-        
         // ユーザーデフォルトを用意する
         let myDefault = UserDefaults.standard
         
@@ -306,11 +306,22 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         // 即反映させる
         myDefault.synchronize()
         
-        
-        
         //閉じる処理
         imagePicker.dismiss(animated: true, completion: nil)
         
+        
+        if strURL != nil{
+            
+            let url = URL(string: strURL as String!)
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+            let manager: PHImageManager = PHImageManager()
+            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                self.editImage.image = image
+            }
+            
+        }
+
     }
 
     
@@ -327,6 +338,24 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             picker.sourceType = UIImagePickerControllerSourceType.camera
 
             self.present(picker,animated: true, completion: nil)
+        }
+        //UserDefaultから取り出す
+        // ユーザーデフォルトを用意する
+        let myDefault = UserDefaults.standard
+        
+        // データを取り出す
+        let strURL = myDefault.string(forKey: "selectedPhotoURL")
+        
+        if strURL != nil{
+            
+            let url = URL(string: strURL as String!)
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+            let manager: PHImageManager = PHImageManager()
+            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                self.editImage.image = image
+            }
+            
         }
         
     }
