@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Photos
 class TopsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
@@ -49,10 +50,10 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
             photList2 = NSMutableArray()
             for result : AnyObject in fetchResults{
                 var photDate: String? = result.value(forKey: "phot") as? String
-                
-                
+                var dateDate: String? = result.value(forKey: "date") as? String
+                photList2.add(["phot":photDate,"date": dateDate])
             }
-            photList2[0] = ["phot":"noimages.png"]
+           // photList2[0] = ["phot":"noimages.png"]
             
         }catch{
             
@@ -64,34 +65,52 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     
    var selectedImage: String = ""
-    
-
+    var selectedDate : String = ""
+   var count = 0
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
         
 //        // Cell はストーリーボードで設定したセルのID
-       let testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+       var testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
 //      
        // Tag番号を使ってImageViewのインスタンス生成
-    let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
+        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
 //      // 画像配列の番号で指定された要素の名前の画像をUIImageとする
     //
         
-        
-        
-        var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
+      var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
         //sample45から
-        var phot:String = photListDate["phot"]! as! String
-
-        let cellImage = UIImage(named: phot)
-        //       // UIImageをUIImageViewのimageとして設定
-        imageView.image = cellImage
+        var phot:String = photListDate["phot"] as! String
+        
+      //  var cellImage = UIImage(named: phot)
+        //        //       // UIImageをUIImageViewのimageとして設定
+       // imageView.image = cellImage
+        //
+        //
+      //  var photListDictionary:NSDictionary = photList2[indexPath.row] as! NSDictionary
 
         
-        var photListDictionary:NSDictionary = photList2[indexPath.row] as! NSDictionary
+        // ユーザーデフォルトを用意する
+       // let myDefault = UserDefaults.standard
         
-    
+        // データを取り出す
+      //  let strURL = myDefault.string(forKey: "selectedPhotoURL")
+        
+        if phot != nil{
+            
+            let url = URL(string: phot as String!)
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+            let manager: PHImageManager = PHImageManager()
+            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                imageView.image = image
+               self.count += 1
+            }
+            
+        }else{
+            imageView.image = UIImage(named: "noimages.png")
+        }
             return testCell
         
         
@@ -102,10 +121,12 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
         //sample45から
         var phot:String = photListDate["phot"]! as! String
-        
+        var date:String = photListDate["date"]! as! String
+        //var phot:String = photList2[indexPath.row] as! String
         // [indexPath.row] から画像名を探し、UImage を設定
         selectedImage =  phot
-        if selectedImage != nil {
+        selectedDate = date
+        if (selectedImage != nil) && (selectedDate != nil) {
            //  SubViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "toEditViewController",sender: nil)
         }
@@ -118,6 +139,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
             let subVC: EditViewController = (segue.destination as? EditViewController)!
             // EditViewController のselectedImgに選択された画像を設定する
             subVC.selectedImg = selectedImage
+            subVC.dateField.text = selectedDate
         }
     }
     
@@ -135,7 +157,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 1;
+        return photList2.count;
     }
     
     

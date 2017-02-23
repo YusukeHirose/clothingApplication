@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Photos
-class EditViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate{
+class EditViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UITextFieldDelegate{
 
     @IBOutlet weak var editImage: UIImageView!
     
@@ -40,7 +40,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     }
     
     var selectedImg: String!
-
+    var strURL: String!
     var photlist:[NSDictionary] = NSArray() as! [NSDictionary]
     
     
@@ -156,6 +156,12 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             return true
        case 4:
             return true
+        
+       case 5:
+        disprayDatePickerView()
+            return false
+      // case 6: return false
+        
         default:
             return true
             }
@@ -170,10 +176,10 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     //DatePickerのviewを表示する
     @IBAction func enterDate(_ sender: UITextField) {
-    
+    }
     func disprayDatePickerView(){
         UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y: self.view.frame.size.height - self.baseView.frame.height)},completion:{finished in print("DatePickerが現れました")})
-        }
+        
     }
     
     //DatePickerが載ったviewを隠す
@@ -221,7 +227,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                 var blandDate: String? = result.value(forKey:"blandname") as? String
                 var dateDate: String? = result.value(forKey:"date") as? String
                 var categoryDate: String? = result.value(forKey:"category") as? String
-                var priceDate: Int16? = result.value(forKey: "price") as? Int16
+               // var priceDate: Int16? = result.value(forKey: "price") as? Int16
                 
               photlist.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,"price":priceField.text])
                 
@@ -235,34 +241,6 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     }
     
-    
-    //保存ボタンタップで追加
-    @IBAction func tapBtn(_ sender: UIButton) {
-        //AppDelegateを使う用意をしておく
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appDelegate.persistentContainer.viewContext
-        //UserDateエンティティオブジェクトの作成
-        let UserDate = NSEntityDescription.entity(forEntityName:"UserDate",in:viewContext)
-        //UserDateエンティティにレコード(行)を挿入するためのオブジェクトを作成
-        let newRecord = NSManagedObject(entity: UserDate!, insertInto: viewContext)
-        //値のセット
-        newRecord.setValue(editImage.image, forKey: "phot")
-        newRecord.setValue(clotheField.text, forKey: "clothename")
-        newRecord.setValue(sizeField.text, forKey: "size")
-        newRecord.setValue(blandField.text, forKey: "blandname")
-        newRecord.setValue(dateField.text, forKey: "date")
-        newRecord.setValue(categoryField.text, forKey: "category")
-        newRecord.setValue(priceField.text, forKey: "price")
-        do{
-            //レコードの即時保存
-            try viewContext.save()
-        }catch{
-        
-        }
-        //CoreDateからdateを読み込む処理
-        read()
-    }
     
     
     
@@ -302,6 +280,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
         // データを書き込んで
         myDefault.set(strURL, forKey: "selectedPhotoURL")
+
+
         
         // 即反映させる
         myDefault.synchronize()
@@ -318,6 +298,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             let manager: PHImageManager = PHImageManager()
             manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
                 self.editImage.image = image
+                
             }
             
         }
@@ -360,6 +341,76 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
     }
     
+    //保存ボタンタップで追加
+    @IBAction func tapBtn(_ sender: UIButton) {
+        
+        //AppDelegateを使う用意をしておく
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appDelegate.persistentContainer.viewContext
+        //UserDateエンティティオブジェクトの作成
+        let UserDate = NSEntityDescription.entity(forEntityName:"UserDate",in:viewContext)
+        //UserDateエンティティにレコード(行)を挿入するためのオブジェクトを作成
+        let newRecord = NSManagedObject(entity: UserDate!, insertInto: viewContext)
+        
+        //UserDefaultから取り出す
+        // ユーザーデフォルトを用意する
+        let myDefault = UserDefaults.standard
+        
+        // データを取り出す
+        let strURL = myDefault.string(forKey: "selectedPhotoURL")
+
+        
+        if (dateField.text == "")&&(strURL == ""){
+            let alertController = UIAlertController(title: "保存", message: "保存しますか？", preferredStyle: .alert)
+            //OKボタンを追加
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.namePicOK() }))
+            //アラートを表示する（重要）
+            present(alertController, animated: true, completion: nil)
+        }else if strURL == ""{
+            let alertController = UIAlertController(title: "画像選択", message: "画像を選択して下さい。", preferredStyle: .alert)
+            //OKボタンを追加
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.picOK() }))
+            //アラートを表示する（重要）
+            present(alertController, animated: true, completion: nil)
+        }else if dateField.text == "" {
+            let alertController = UIAlertController(title: "oops!!", message: "tell me the name of meal", preferredStyle: .alert)
+            //OKボタンを追加
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.nameOK() }))
+            //アラートを表示する（重要）
+            present(alertController, animated: true, completion: nil)
+        }
+        
+        
+       
+                  //値のセット
+        newRecord.setValue(strURL, forKey: "phot") as? String
+        newRecord.setValue(clotheField.text, forKey: "clothename")
+        newRecord.setValue(sizeField.text, forKey: "size")
+        newRecord.setValue(blandField.text, forKey: "blandname")
+        newRecord.setValue(dateField.text, forKey: "date")
+        newRecord.setValue(categoryField.text, forKey: "category")
+        //  newRecord.setValue(priceField.text, forKey: "price") as? Int16
+        do{
+            //レコードの即時保存
+            try viewContext.save()
+        }catch{
+            
+        }
+        //CoreDateからdateを読み込む処理
+        read()
+    }
+    
+    func nameOK(){
+        
+    }
+
+    func picOK(){
+        
+    }
+    func namePicOK(){
+        
+    }
     /*
     // MARK: - Navigation
 

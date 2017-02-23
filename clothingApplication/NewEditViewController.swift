@@ -1,28 +1,20 @@
 //
-//  TabBarController.swift
+//  NewEditViewController.swift
 //  clothingApplication
 //
-//  Created by User on 2017/02/12.
+//  Created by User on 2017/02/23.
 //  Copyright © 2017年 Yusuke Hirose. All rights reserved.
 //
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class NewEditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //レンダリングモードをAlwaysOriginalでボタンの画像を登録する。
-        tabBar.items![0].image = UIImage(named: "Clothes-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        tabBar.items![1].image = UIImage(named: "Player Change-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-       tabBar.items![2].image = UIImage(named: "Add to Favorites-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        //tabBar.items![3].image = UIImage(named: "Screenshot-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-
-    
-
 
         // Do any additional setup after loading the view.
-}
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

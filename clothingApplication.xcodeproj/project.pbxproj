@@ -12,6 +12,7 @@
 		CE07998F1E544A410025B577 /* CApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE07998D1E544A410025B577 /* CApplication.xcdatamodeld */; };
 		CE0799D61E5541590025B577 /* UserDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0799D41E5541590025B577 /* UserDate+CoreDataClass.swift */; };
 		CE0799D71E5541590025B577 /* UserDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0799D51E5541590025B577 /* UserDate+CoreDataProperties.swift */; };
+		CE1D60321E5E89BB0044ED2E /* NewEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D60311E5E89BB0044ED2E /* NewEditViewController.swift */; };
 		CE48AF181E509C8000404543 /* WantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF171E509C8000404543 /* WantListViewController.swift */; };
 		CE48AF1A1E50A35F00404543 /* moalboal.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE48AF191E50A35F00404543 /* moalboal.jpeg */; };
 		CE48AF1C1E50B50500404543 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AF1B1E50B50500404543 /* TabBarController.swift */; };
@@ -73,6 +74,7 @@
 		CE07998E1E544A410025B577 /* CApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CApplication.xcdatamodel; sourceTree = "<group>"; };
 		CE0799D41E5541590025B577 /* UserDate+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE0799D51E5541590025B577 /* UserDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE1D60311E5E89BB0044ED2E /* NewEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEditViewController.swift; sourceTree = "<group>"; };
 		CE48AF171E509C8000404543 /* WantListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WantListViewController.swift; sourceTree = "<group>"; };
 		CE48AF191E50A35F00404543 /* moalboal.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moalboal.jpeg; sourceTree = "<group>"; };
 		CE48AF1B1E50B50500404543 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				CE4B55AC1E4B4BF000003686 /* TopsViewController.swift */,
 				CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */,
 				CE7E296C1E531DFE005B78B7 /* EditViewController.swift */,
+				CE1D60311E5E89BB0044ED2E /* NewEditViewController.swift */,
 				CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */,
 				CE59C51B1E5C38D7000BD499 /* noimages.png */,
 				CE4B55AE1E4B4BF000003686 /* Main.storyboard */,
@@ -551,6 +554,7 @@
 				CE4B55AB1E4B4BF000003686 /* AppDelegate.swift in Sources */,
 				CE0799D71E5541590025B577 /* UserDate+CoreDataProperties.swift in Sources */,
 				CE7E296D1E531DFE005B78B7 /* EditViewController.swift in Sources */,
+				CE1D60321E5E89BB0044ED2E /* NewEditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
