@@ -23,5 +23,5 @@ extension UserDate {
     @NSManaged public var price: Int16
     @NSManaged public var date: String?
     @NSManaged public var category: String?
-
+    @NSManaged public var created_at: String?
 }

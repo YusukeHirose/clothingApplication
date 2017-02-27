@@ -9,8 +9,22 @@
 import UIKit
 import CoreData
 import Photos
+
+
+
+
+
 class TopsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     @IBOutlet weak var myCollectionView: UICollectionView!
+    
+    let image : UIImage = UIImage(named:"toNewEdit.png")!
+    
+    // 画面の横幅を取得
+    var screenWidth:CGFloat = 0
+    var screenHeight:CGFloat = 0
+    
+    // UIButton のインスタンスを生成
+    let button = UIButton()
     
    
     
@@ -27,12 +41,44 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        // 画面の横幅を取得
+        let screenWidth: CGFloat = self.view.frame.width
+        let screenHeight: CGFloat = self.view.frame.height
+        
+        // 画像を設定
+        button.setImage(image, for: .normal)
+        
+        // Buttonの位置と大きさを設定
+        button.frame = CGRect(x:screenWidth/1.3, y:screenHeight/1.5-20, width:70, height:70)
+        
+        button.alpha = 0.4
+        
+        // ViewにButtonを追加
+        self.view.addSubview(button)
+
+       
+        //最前面に移動
+        self.view.bringSubview(toFront: button)
+
+        // タップされたときのactionをセット
+        button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
+
+
+        
         
         let myDefault = UserDefaults.standard
         
               print(photList2)
         
       read()
+    }
+    
+    func buttonTapped(sender: UIButton){
+        let next = storyboard!.instantiateViewController(withIdentifier: "NewEditViewController")
+         self.present(next,animated: true, completion: nil)
+
     }
     
     //すでに存在するデータの読み込み処理
@@ -53,7 +99,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
                 var dateDate: String? = result.value(forKey: "date") as? String
                 photList2.add(["phot":photDate,"date": dateDate])
             }
-           // photList2[0] = ["phot":"noimages.png"]
+            photList2[0] = ["phot":"noimages.png","date":"2017/02/26"]
             
         }catch{
             
@@ -65,7 +111,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     
    var selectedImage: String = ""
-    var selectedDate : String = ""
+    var selectedDt : String = ""
    var count = 0
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
@@ -92,10 +138,10 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
 
         
         // ユーザーデフォルトを用意する
-       // let myDefault = UserDefaults.standard
+        let myDefault = UserDefaults.standard
         
         // データを取り出す
-      //  let strURL = myDefault.string(forKey: "selectedPhotoURL")
+        let strURL = myDefault.string(forKey: "selectedPhotoURL")
         
         if phot != nil{
             
@@ -125,8 +171,8 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         //var phot:String = photList2[indexPath.row] as! String
         // [indexPath.row] から画像名を探し、UImage を設定
         selectedImage =  phot
-        selectedDate = date
-        if (selectedImage != nil) && (selectedDate != nil) {
+        selectedDt = date
+        if (selectedImage != nil) && (selectedDt != nil) {
            //  SubViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "toEditViewController",sender: nil)
         }
@@ -135,11 +181,11 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     // Segue 準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if (segue.identifier == "toEditViewController") {
+        if (segue.identifier == "EditViewController") {
             let subVC: EditViewController = (segue.destination as? EditViewController)!
             // EditViewController のselectedImgに選択された画像を設定する
             subVC.selectedImg = selectedImage
-            subVC.dateField.text = selectedDate
+            subVC.sselectedDate1 = selectedDt
         }
     }
     
