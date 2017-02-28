@@ -17,6 +17,7 @@ import Photos
 class TopsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
+   //画像ボタン作成
     let image : UIImage = UIImage(named:"toNewEdit.png")!
     
     // 画面の横幅を取得
@@ -99,7 +100,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
                 var dateDate: String? = result.value(forKey: "date") as? String
                 photList2.add(["phot":photDate,"date": dateDate])
             }
-            photList2[0] = ["phot":"noimages.png","date":"2017/02/26"]
+         //   photList2[0] = ["phot":"noimages.png","date":"2017/02/26"]
             
         }catch{
             
@@ -129,20 +130,20 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         //sample45から
         var phot:String = photListDate["phot"] as! String
         
-      //  var cellImage = UIImage(named: phot)
+       var cellImage = UIImage(named: phot)
         //        //       // UIImageをUIImageViewのimageとして設定
-       // imageView.image = cellImage
-        //
+        imageView.image = cellImage
+        //q
         //
       //  var photListDictionary:NSDictionary = photList2[indexPath.row] as! NSDictionary
 
         
-        // ユーザーデフォルトを用意する
-        let myDefault = UserDefaults.standard
-        
-        // データを取り出す
-        let strURL = myDefault.string(forKey: "selectedPhotoURL")
-        
+//        // ユーザーデフォルトを用意する
+//        let myDefault = UserDefaults.standard
+//        
+//        // データを取り出す
+//        let strURL = myDefault.string(forKey: "selectedPhotoURL")
+//        
         if phot != nil{
             
             let url = URL(string: phot as String!)
@@ -168,10 +169,11 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         //sample45から
         var phot:String = photListDate["phot"]! as! String
         var date:String = photListDate["date"]! as! String
-        //var phot:String = photList2[indexPath.row] as! String
+       // var phot:String = photList2[indexPath.row] as! String
         // [indexPath.row] から画像名を探し、UImage を設定
         selectedImage =  phot
         selectedDt = date
+        print(selectedDt)
         if (selectedImage != nil) && (selectedDt != nil) {
            //  SubViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "toEditViewController",sender: nil)
@@ -181,11 +183,11 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     // Segue 準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if (segue.identifier == "EditViewController") {
+        if (segue.identifier == "toEditViewController") {
             let subVC: EditViewController = (segue.destination as? EditViewController)!
             // EditViewController のselectedImgに選択された画像を設定する
             subVC.selectedImg = selectedImage
-            subVC.sselectedDate1 = selectedDt
+            subVC.selectedCD = selectedDt
         }
     }
     

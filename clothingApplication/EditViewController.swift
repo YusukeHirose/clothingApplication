@@ -42,9 +42,9 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     var selectedImg: String!
     var strURL: String!
     var photlist:[NSDictionary] = NSArray() as! [NSDictionary]
-    var selectedCD: Date!
+    var selectedCD: String!
     var selectedDate: NSDate = NSDate()
-    var sselectedDate1 :String!
+    
     
     @IBOutlet weak var formView: UIView!
     
@@ -112,9 +112,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         sizeField.inputAccessoryView = upView
         priceField.inputAccessoryView = upView
         
-
-        
-        editImage.image = UIImage(named: selectedImg)
+       
         
         read()
     }
@@ -199,7 +197,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         var strSelectedDate = df.string(from:sender.date)
         //dateFieldに値を表示
         dateField.text = strSelectedDate
-        strSelectedDate = sselectedDate1
+        
     }
     //キーボードを閉じる
     func closeKeyboad(sender:UIButton){
@@ -216,11 +214,14 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
         //どのエンティティからdataを取得してくるか設定
-        let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+       // let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
         
         do{
             //データを一括取得
+            let query:NSFetchRequest<UserDate> = UserDate.fetchRequest()
+            query.predicate = NSPredicate(format:"date = %@", selectedCD)
             let fetchResults = try viewContext.fetch(query)
+            print("selectedCD=\(selectedCD)")
             //一旦配列を空にする(初期化)
             photlist = NSArray() as! [NSDictionary]
             for result : AnyObject in fetchResults{
@@ -230,13 +231,30 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                 var blandDate: String? = result.value(forKey:"blandname") as? String
                 var dateDate: String? = result.value(forKey:"date") as? String
                 var categoryDate: String? = result.value(forKey:"category") as? String
-               // var changeDate: String? = result.value(forKey:"created_at") as? String
+                var changeDate: String? = result.value(forKey:"created_at") as? String
                // var priceDate: Int16? = result.value(forKey: "price") as? Int16
                 
               photlist.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,])
-                
-
-
+           
+                print("dateDate=\(dateDate)")
+           //NewEditの登録内容読み込み
+            dateField.text = "\(dateDate!)"
+            clotheField.text = "\(clothenameDate!)"
+            sizeField.text = "\(sizeDate!)"
+        
+                var AImage: UIImage!
+                if photDate != nil{
+                    
+                    let url = URL(string: photDate as String!)
+                    let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+                    let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+                    let manager: PHImageManager = PHImageManager()
+                    manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                        AImage = image
+                        self.strURL = photDate!
+                    }
+                    editImage.image = AImage
+            }
             }
         }catch{
             
@@ -349,13 +367,12 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     @IBAction func tapBtn(_ sender: UIButton) {
         
         //AppDelegateを使う用意をしておく
-        //let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         //エンティティを操作するためのオブジェクトを作成
-      //  let viewContext = appDelegate.persistentContainer.viewContext
+        let viewContext = appDelegate.persistentContainer.viewContext
         //UserDateエンティティオブジェクトの作成
-       // let userDate = NSEntityDescription.entity(forEntityName:"UserDate",in:viewContext)
-        //UserDateエンティティにレコード(行)を挿入するためのオブジェクトを作成
-       // let newRecord = NSManagedObject(entity: UserDate!, insertInto: viewContext)
+        let userDate = NSEntityDescription.entity(forEntityName:"UserDate",in:viewContext)
+        
         
         //UserDefaultから取り出す
         // ユーザーデフォルトを用意する
@@ -365,43 +382,43 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         let strURL = myDefault.string(forKey: "selectedPhotoURL")
 
         
-        if (dateField.text == "")&&(strURL == ""){
-            let alertController = UIAlertController(title: "保存", message: "保存しますか？", preferredStyle: .alert)
-            //OKボタンを追加
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.namePicOK() }))
-            //アラートを表示する（重要）
-            present(alertController, animated: true, completion: nil)
-        }else if strURL == ""{
-            let alertController = UIAlertController(title: "画像選択", message: "画像を選択して下さい。", preferredStyle: .alert)
-            //OKボタンを追加
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.picOK() }))
-            //アラートを表示する（重要）
-            present(alertController, animated: true, completion: nil)
-        }else if dateField.text == "" {
-            let alertController = UIAlertController(title: "日付入力", message: "日付を入力して下さい。", preferredStyle: .alert)
-            //OKボタンを追加
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.nameOK() }))
-            //アラートを表示する（重要）
-            present(alertController, animated: true, completion: nil)
-        }
+//        if (dateField.text == "")&&(strURL == ""){
+//            let alertController = UIAlertController(title: "保存", message: "保存しますか？", preferredStyle: .alert)
+//            //OKボタンを追加
+//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.namePicOK() }))
+//            //アラートを表示する（重要）
+//            present(alertController, animated: true, completion: nil)
+//        }else if strURL == ""{
+//            let alertController = UIAlertController(title: "画像選択", message: "画像を選択して下さい。", preferredStyle: .alert)
+//            //OKボタンを追加
+//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.picOK() }))
+//            //アラートを表示する（重要）
+//            present(alertController, animated: true, completion: nil)
+//        }else if dateField.text == "" {
+//            let alertController = UIAlertController(title: "日付入力", message: "日付を入力して下さい。", preferredStyle: .alert)
+//            //OKボタンを追加
+//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.nameOK() }))
+//            //アラートを表示する（重要）
+//            present(alertController, animated: true, completion: nil)
+//        }
         
-        if (dateField.text != "")&&(strURL != "" ){
-            
-            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let viewContext = appDelegate.persistentContainer.viewContext
-            let userDate = NSEntityDescription.entity(forEntityName: "UserDate", in: viewContext)
+//        if (dateField.text != "")&&(strURL != "" ){
+//            
+//           // let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//            //et viewContext = appDelegate.persistentContainer.viewContext
+//          //  let userDate = NSEntityDescription.entity(forEntityName: "UserDate", in: viewContext)
             let date = Date()
             let df = DateFormatter()
            // df.timeZone = TimeZone.current
-            df.dateFormat = "yyyy/MM/dd"
+            df.dateFormat = "yyyy/MM/dd HH:mm:ss"
             let selectedDate = df.string(from: date)
             let changeDate = df.date(from: selectedDate)
-           // if (switchFlag){
-                //Update
+//           // if (switchFlag){
+//                //Update
                 let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
                 let strSavedDate: String = df.string(from: date)
                 let savedDate :Date = df.date(from: strSavedDate)!
-              do {
+            do {
                   let namePredicte = NSPredicate(format: "created_at = %@", savedDate as CVarArg)
                    request.predicate = namePredicte
                    let fetchResults = try viewContext.fetch(request)
@@ -414,7 +431,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         record.setValue(clotheField.text, forKey: "clothename")
         record.setValue(sizeField.text, forKey: "size")
         record.setValue(blandField.text, forKey: "blandname")
-        record.setValue(dateField.text, forKey: "date") as? String
+        record.setValue(selectedDate, forKey: "date") as? String
         record.setValue(categoryField.text, forKey: "category")
         record.setValue(changeDate, forKey: "created_at") as? String
         //  newRecord.setValue(priceField.text, forKey: "price") as? Int16
@@ -423,38 +440,57 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             try viewContext.save()
         }catch{
             
-        }
- //         } else {
-//           let newRecord = NSManagedObject(entity: userDate!, insertInto: viewContext)
-//                newRecord.setValue(strURL, forKey: "phot") as? String
-//               newRecord.setValue(clotheField.text, forKey: "clothename")
-//               newRecord.setValue(sizeField.text, forKey: "size")
-//                newRecord.setValue(blandField.text, forKey: "blandname")
-//               newRecord.setValue(dateField, forKey: "date") as? String
-//                newRecord.setValue(categoryField.text, forKey: "category")
-//                newRecord.setValue(changeDate, forKey: "created_at") as? String
-//                //エラー回避catchの中に例外処理（少々お待ちください）
-//               do {
-//                   try viewContext.save()
-//                } catch {                }
-//            
-//
-//            }
-        }
+       }
+    
         //CoreDateからdateを読み込む処理
         read()
+            }
+    
+    
+//    func nameOK(){
+//        
+//    }
+//
+//    func picOK(){
+//        
+//    }
+//    func namePicOK(){
+//        
+//    }
+    
+    
+    @IBAction func tapCancel(_ sender: UIButton) {
+        //AppDelegateを使う用意をしておく
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appDelegate.persistentContainer.viewContext
+        let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+        
+            //削除するdateを取得
+            let namePredicte = NSPredicate(format: "date = %@",selectedCD)
+            request.predicate = namePredicte
+
+            let fetchResults = try! viewContext.fetch(request)
+            for result: AnyObject in fetchResults {
+                let record = result as! NSManagedObject
+
+                viewContext.delete(record)
+                do{
+                
+                    try viewContext.save()}catch{
+                }
+        
+        }
+        
     }
     
-    func nameOK(){
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(selectedDate)
     }
-
-    func picOK(){
-        
-    }
-    func namePicOK(){
-        
-    }
+    
     /*
     // MARK: - Navigation
 

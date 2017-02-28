@@ -46,7 +46,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     var switchFlag = false
     var selectedCD: Date!
     var selectedDate: NSDate = NSDate()
-    var useDate: String!
+   // var useDate: String!
     
     @IBOutlet weak var formView: UIView!
     
@@ -114,13 +114,10 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         clotheField2.inputAccessoryView = upView
         sizeField2.inputAccessoryView = upView
         priceField2.inputAccessoryView = upView
+    
         
-        
-        
-        editImage2.image = UIImage(named: selectedImg)
-        if editImage2.image == nil{
             editImage2.image = UIImage(named: "noimages.png")
-        }
+        
         
         read()
 
@@ -207,7 +204,6 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         var strSelectedDate = df.string(from:sender.date)
         //dateFieldに値を表示
         dateField2.text = strSelectedDate
-        strSelectedDate = useDate
     }
     //キーボードを閉じる
     func closeKeyboad(sender:UIButton){
@@ -356,14 +352,14 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     //保存ボタンタップで画像をcollectionViewに追加する
     @IBAction func tapBtn(_ sender: UIButton) {
         
-        //AppDelegateを使う用意をしておく
-        //let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        //エンティティを操作するためのオブジェクトを作成
-        //  let viewContext = appDelegate.persistentContainer.viewContext
+       // AppDelegateを使う用意をしておく
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+       // エンティティを操作するためのオブジェクトを作成
+          let viewContext = appDelegate.persistentContainer.viewContext
         //UserDateエンティティオブジェクトの作成
-        // let userDate = NSEntityDescription.entity(forEntityName:"UserDate",in:viewContext)
+        let userDate = NSEntityDescription.entity(forEntityName:"UserDate",in:viewContext)
         //UserDateエンティティにレコード(行)を挿入するためのオブジェクトを作成
-        // let newRecord = NSManagedObject(entity: UserDate!, insertInto: viewContext)
+        let newRecord = NSManagedObject(entity: userDate!, insertInto: viewContext)
         
         //UserDefaultから取り出す
         // ユーザーデフォルトを用意する
@@ -372,98 +368,35 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         // データを取り出す
         let strURL = myDefault.string(forKey: "selectedPhotoURL")
         
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        //日付を文字列に変換
+        var strSelectedDate = df.string(from:Date())
+
         
-        if (dateField2.text == "")&&(strURL == ""){
-            let alertController = UIAlertController(title: "保存", message: "保存しますか？", preferredStyle: .alert)
-            //OKボタンを追加
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.namePicOK() }))
-            //アラートを表示する（重要）
-            present(alertController, animated: true, completion: nil)
-        }else if strURL == ""{
-            let alertController = UIAlertController(title: "画像選択", message: "画像を選択して下さい。", preferredStyle: .alert)
-            //OKボタンを追加
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.picOK() }))
-            //アラートを表示する（重要）
-            present(alertController, animated: true, completion: nil)
-        }else if dateField2.text == "" {
-            let alertController = UIAlertController(title: "日付入力", message: "日付を入力して下さい。", preferredStyle: .alert)
-            //OKボタンを追加
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.nameOK() }))
-            //アラートを表示する（重要）
-            present(alertController, animated: true, completion: nil)
-        }
+                       newRecord.setValue(strURL, forKey: "phot") as? String
+                       newRecord.setValue(clotheField2.text, forKey: "clothename")
+                       newRecord.setValue(sizeField2.text, forKey: "size")
+                        newRecord.setValue(blandField2.text, forKey: "blandname")
+                       newRecord.setValue(dateField2.text, forKey: "date") as? String
+                        newRecord.setValue(categoryField2.text, forKey: "category")
+                        newRecord.setValue(strSelectedDate, forKey: "created_at") as? String
         
-        if (dateField2.text != "")&&(strURL != "" ){
-            
-            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let viewContext = appDelegate.persistentContainer.viewContext
-            let userDate = NSEntityDescription.entity(forEntityName: "UserDate", in: viewContext)
-            let date = Date()
-            let df = DateFormatter()
-            df.timeZone = TimeZone.current
-            df.dateFormat = "yyyy/MM/dd"
-            let selectedDate = df.string(from: date)
-            let changeDate = df.date(from: selectedDate)
-            if (switchFlag){
-                //Update
-                let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
-                let strSavedDate: String = df.string(from: date)
-                let savedDate :Date = df.date(from: strSavedDate)!
-                do {
-                    let namePredicte = NSPredicate(format: "created_at = %@", savedDate as CVarArg)
-                    request.predicate = namePredicte
-                    let fetchResults = try viewContext.fetch(request)
-                    //登録された日付を元に1件取得　新しい値を入れる
-                    for result: AnyObject in fetchResults {
-                        let record = result as! NSManagedObject
-                        
-                        //値のセット
-                        record.setValue(strURL, forKey: "phot") as? String
-                        record.setValue(clotheField2.text, forKey: "clothename")
-                        record.setValue(sizeField2.text, forKey: "size")
-                        record.setValue(blandField2.text, forKey: "blandname")
-                        record.setValue(dateField2.text, forKey: "date") as? String
-                        record.setValue(categoryField2.text, forKey: "category")
-                        record.setValue(changeDate, forKey: "created_at") as? String
-                        //  newRecord.setValue(priceField.text, forKey: "price") as? Int16
-                    }
-                    //レコードの即時保存
-                    try viewContext.save()
-                }catch{
-                    
-                }
-            } else {
-                let newRecord = NSManagedObject(entity: userDate!, insertInto: viewContext)
-                newRecord.setValue(strURL, forKey: "phot") as? String
-                newRecord.setValue(clotheField2.text, forKey: "clothename")
-                newRecord.setValue(sizeField2.text, forKey: "size")
-                newRecord.setValue(blandField2.text, forKey: "blandname")
-                newRecord.setValue(dateField2, forKey: "date") as? String
-                newRecord.setValue(categoryField2.text, forKey: "category")
-                newRecord.setValue(changeDate, forKey: "created_at") as? String
-                //エラー回避catchの中に例外処理（少々お待ちください）
-                do {
-                    try viewContext.save()
-                } catch {                }
-                
-                
-            }
-        }
-        //CoreDateからdateを読み込む処理
-        read()
-    }
+                       do {
+                           try viewContext.save()
+                        } catch {                }
+        
+        
+        
     
-    func nameOK(){
+    //CoreDateからdateを読み込む処理
+    read()
+
+}
+
         
-    }
-    
-    func picOK(){
-        
-    }
-    func namePicOK(){
-        
-    }
-    /*
+
+           /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -472,10 +405,10 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
      // Pass the selected object to the new view controller.
      }
      */
+
+
+
     
+
+
 }
-
-    
-
-
-  
