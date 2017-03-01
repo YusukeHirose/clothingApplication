@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
     // インスタンス配列
     var controllerArray : [UIViewController] = []
     var pageMenu : CAPSPageMenu?
@@ -26,6 +27,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        
         
         for site in category {
             
@@ -77,19 +81,19 @@ class ViewController: UIViewController {
             .scrollMenuBackgroundColor(UIColor.black),
             .viewBackgroundColor(UIColor.white),
             .bottomMenuHairlineColor(UIColor.white),
-            .selectionIndicatorColor(UIColor.blue),
+            .selectionIndicatorColor(UIColor.brown),
             .menuItemFont(UIFont(name: "HelveticaNeue", size: 20.0)!),
             .centerMenuItems(true),
             .menuItemWidthBasedOnTitleTextWidth(true),
             .menuMargin(20),
-            .selectedMenuItemLabelColor(UIColor.blue),
+            .selectedMenuItemLabelColor(UIColor.brown),
             .unselectedMenuItemLabelColor(UIColor.white)
             
         ]
         
         // Initialize scroll menu
         
-        let rect = CGRect(origin: CGPoint(x: 0,y :50), size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
+        let rect = CGRect(origin: CGPoint(x: 0,y :60), size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: rect, pageMenuOptions: parameters)
         
         self.addChildViewController(pageMenu!)
@@ -102,7 +106,7 @@ class ViewController: UIViewController {
 
     
     
-       override func didReceiveMemoryWarning() {
+        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

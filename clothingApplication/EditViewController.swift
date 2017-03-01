@@ -219,7 +219,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         do{
             //データを一括取得
             let query:NSFetchRequest<UserDate> = UserDate.fetchRequest()
-            query.predicate = NSPredicate(format:"date = %@", selectedCD)
+            query.predicate = NSPredicate(format:"created_at = %@", selectedCD)
             let fetchResults = try viewContext.fetch(query)
             print("selectedCD=\(selectedCD)")
             //一旦配列を空にする(初期化)

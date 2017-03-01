@@ -76,7 +76,7 @@
 		CE0799D41E5541590025B577 /* UserDate+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE0799D51E5541590025B577 /* UserDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE1D60311E5E89BB0044ED2E /* NewEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEditViewController.swift; sourceTree = "<group>"; };
-		CE1D60351E62A0600044ED2E /* toNewEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toNewEdit.png; path = ../../../../Desktop/toNewEdit.png; sourceTree = "<group>"; };
+		CE1D60351E62A0600044ED2E /* toNewEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toNewEdit.png; sourceTree = "<group>"; };
 		CE48AF171E509C8000404543 /* WantListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WantListViewController.swift; sourceTree = "<group>"; };
 		CE48AF191E50A35F00404543 /* moalboal.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moalboal.jpeg; sourceTree = "<group>"; };
 		CE48AF1B1E50B50500404543 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oslob.jpeg; sourceTree = "<group>"; };
 		CE7E296C1E531DFE005B78B7 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraViewController.swift; sourceTree = "<group>"; };
-		CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = "../../../../Downloads/PageMenu-master 5/Classes/CAPSPageMenu.swift"; sourceTree = "<group>"; };
+		CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		CEB6BA651E5AF2F20063B87C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsViewController.swift; sourceTree = "<group>"; };
