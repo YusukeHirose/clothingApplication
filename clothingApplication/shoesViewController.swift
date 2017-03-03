@@ -14,7 +14,7 @@ import Photos
 
 
 
-class jktViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class shoesViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     //画像ボタン作成
@@ -90,7 +90,7 @@ class jktViewController: UIViewController,UICollectionViewDataSource,UICollectio
         let viewContext = appDelegate.persistentContainer.viewContext
         //どのエンティティからdataを取得してくるか設定
         let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
-        query.predicate = NSPredicate(format:"category = %@","ジャケット")
+        query.predicate = NSPredicate(format:"category = %@","シューズ")
         // print("selectedCD=\(selectedCD)")
         
         

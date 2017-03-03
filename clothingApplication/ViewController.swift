@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         ["title":"トップス","storyboardID":"topsViewController"],
         ["title":"パンツ","storyboardID":"pantsViewController"],
         ["title":"ジャケット","storyboardID":"jktViewController"],
-        ["title":"アウター","storyboardID":"outerViewController"]
-        //["title":"シューズ"]
+        ["title":"アウター","storyboardID":"outerViewController"],
+        ["title":"シューズ","storyboardID":"outerViewController"]
     ]
     
     

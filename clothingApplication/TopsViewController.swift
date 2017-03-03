@@ -37,7 +37,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         //let myApp = UIApplication.shared.delegate as! AppDelegate
     }
     
-    //let photos = ["ayala","moalboal","oslob"]
+    
     var photList2 = NSMutableArray()
     
     override func viewDidLoad() {
@@ -82,6 +82,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
 
     }
     
+    
     //すでに存在するデータの読み込み処理
     func read(){
         //AppDelegateを使う用意をしておく
@@ -89,6 +90,9 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         let viewContext = appDelegate.persistentContainer.viewContext
         //どのエンティティからdataを取得してくるか設定
         let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+        query.predicate = NSPredicate(format:"category = %@","トップス")
+       // print("selectedCD=\(selectedCD)")
+
         
         do{
             //データを一括取得
@@ -98,7 +102,8 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
             for result : AnyObject in fetchResults{
                 var photDate: String? = result.value(forKey: "phot") as? String
                 var dateDate: String? = result.value(forKey: "created_at") as? String
-                photList2.add(["phot":photDate,"created_at": dateDate])
+                var categoryDate: String? = result.value(forKey: "category") as? String
+                photList2.add(["phot":photDate,"created_at": dateDate,"category": categoryDate])
             }
          //   photList2[0] = ["phot":"noimages.png","date":"2017/02/26"]
             

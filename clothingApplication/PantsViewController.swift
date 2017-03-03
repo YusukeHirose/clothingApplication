@@ -84,7 +84,7 @@ class PantsViewController: UIViewController,UICollectionViewDataSource,UICollect
         let viewContext = appDelegate.persistentContainer.viewContext
         //どのエンティティからdataを取得してくるか設定
         let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
-        
+        query.predicate = NSPredicate(format:"category = %@","パンツ")
         do{
             //データを一括取得
             let fetchResults = try viewContext.fetch(query)

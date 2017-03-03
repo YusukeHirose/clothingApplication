@@ -220,6 +220,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //データを一括取得
             let query:NSFetchRequest<UserDate> = UserDate.fetchRequest()
             query.predicate = NSPredicate(format:"created_at = %@", selectedCD)
+            query.predicate = NSPredicate(format:"category = %@")
             let fetchResults = try viewContext.fetch(query)
             print("selectedCD=\(selectedCD)")
             //一旦配列を空にする(初期化)
@@ -241,7 +242,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             dateField.text = "\(dateDate!)"
             clotheField.text = "\(clothenameDate!)"
             sizeField.text = "\(sizeDate!)"
-        
+            categoryField.text = "\(categoryDate!)"
+                
                 var AImage: UIImage!
                 if photDate != nil{
                     
@@ -363,7 +365,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
     }
     
-    //保存ボタンタップで追加
+    //保存ボタンタップで移動・追加
     @IBAction func tapBtn(_ sender: UIButton) {
         
         //AppDelegateを使う用意をしておく
