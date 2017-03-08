@@ -26,11 +26,6 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     
     @IBOutlet weak var priceField2: UITextField!
     
-    @IBAction func tapBack2(_ sender: UIButton) {
-        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
-        self.present(next,animated: true, completion: nil)
-        
-    }
     
     
     
@@ -70,6 +65,12 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     var screenWidth:CGFloat = 0
     var screenHeight:CGFloat = 0
     
+    @IBAction func tapBack(_ sender: UIButton) {
+        
+        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
+        self.present(next,animated: true, completion: nil)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -474,33 +475,40 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd HH:mm:ss"
         //日付を文字列に変換
-        var strSelectedDate = df.string(from:Date())
+        var changeDate = df.string(from:Date())
 
         
-                       newRecord.setValue(strURL, forKey: "phot") as? String
-                       newRecord.setValue(clotheField2.text, forKey: "clothename")
-                       newRecord.setValue(sizeField2.text, forKey: "size")
-                        newRecord.setValue(blandField2.text, forKey: "blandname")
-                       newRecord.setValue(dateField2.text, forKey: "date") as? String
-                        newRecord.setValue(categoryField2.text, forKey: "category")
-                        newRecord.setValue(strSelectedDate, forKey: "created_at") as? String
-        
-                       do {
-                           try viewContext.save()
-                        } catch {                }
         
     
-        if categoryField2.text == nil {
+        if categoryField2.text == "" {
             let alertController = UIAlertController(title: "Category", message: "categoryを選択してください。", preferredStyle: .alert)
             alertController.addAction(UIAlertAction (title:"OK", style: .default, handler: {action in self.myOK()}))
             
             //アラートを表示する
             present(alertController,animated: true, completion: nil)
 
-        }
+        }else{
+            
+            newRecord.setValue(strURL, forKey: "phot") as? String
+            newRecord.setValue(clotheField2.text, forKey: "clothename")
+            newRecord.setValue(sizeField2.text, forKey: "size")
+            newRecord.setValue(blandField2.text, forKey: "blandname")
+            newRecord.setValue(dateField2.text, forKey: "date") as? String
+            newRecord.setValue(categoryField2.text, forKey: "category")
+            newRecord.setValue(changeDate, forKey: "created_at") as? String
+            
+            do {
+                try viewContext.save()
+            } catch {                }
+
+            
+            self.dismiss(animated: true, completion: nil)}
         
         
+//        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
+//        self.present(next,animated: true, completion: nil)
         
+      //  self.dismiss(animated: true, completion: nil)
     
     //CoreDateからdateを読み込む処理
     read()

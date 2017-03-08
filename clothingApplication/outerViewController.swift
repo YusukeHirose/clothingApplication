@@ -92,8 +92,10 @@ class outerViewController: UIViewController,UICollectionViewDataSource,UICollect
             photList2 = NSMutableArray()
             for result : AnyObject in fetchResults{
                 var photDate: String? = result.value(forKey: "phot") as? String
-                var dateDate: String? = result.value(forKey: "date") as? String
-                photList2.add(["phot":photDate,"date": dateDate])
+                var dateDate: String? = result.value(forKey: "created_at") as? String
+                var categoryDate: String? = result.value(forKey: "category") as? String
+                photList2.add(["phot":photDate,"created_at": dateDate,"category": categoryDate])
+
             }
             
         }catch{
@@ -160,7 +162,7 @@ class outerViewController: UIViewController,UICollectionViewDataSource,UICollect
         var photListDate:NSDictionary = photList2[indexPath.row] as! NSDictionary
         //sample45から
         var phot:String = photListDate["phot"]! as! String
-        var date:String = photListDate["date"]! as! String
+        var date:String = photListDate["created_at"]! as! String
         // var phot:String = photList2[indexPath.row] as! String
         // [indexPath.row] から画像名を探し、UImage を設定
         selectedImage =  phot

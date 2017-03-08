@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Photos
-class EditViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UITextFieldDelegate{
+class EditViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate {
 
     @IBOutlet weak var editImage: UIImageView!
     
@@ -50,47 +50,66 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     //datePickerを載せるView
     let baseView:UIView = UIView(frame: CGRect(x:0,y:720,width:200,height:250))
-    
+    let baseView2:UIView = UIView(frame: CGRect(x:0,y:720,width:200,height:250))
     //datePicker(日付編集時)
     let diaryDatePicker:UIDatePicker = UIDatePicker(frame: CGRect(x:10,y:20, width:300,height:250))
-    
+    let categoryPicker:UIPickerView = UIPickerView(frame: CGRect(x:10,y:20, width:300,height:250))
     //datePickerを隠すためのボタン
     let closeBtnDatePicker:UIButton = UIButton(type: .system)
     
     var photList = NSMutableArray()
+    
+    var categoryList = ["トップス","パンツ","ジャケット","アウター","シューズ","キャップ","その他小物"]
+    
+    var scale:CGFloat = 1.0
+    var width:CGFloat = 0
+    var height:CGFloat = 0
+    var screenWidth:CGFloat = 0
+    var screenHeight:CGFloat = 0
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017/02/21"],["category":"パーカー"],["price":"1200"]]
         
+        categoryPicker.dataSource = self
+        categoryPicker.delegate = self
+        
+
         
         //日付が変わったときのイベントをdatePickerに設定
         diaryDatePicker.addTarget(self, action: #selector(showDateSelected(sender:)), for: .valueChanged)
         
         //baseViewにdatePickerを配置
         baseView.addSubview(diaryDatePicker)
-        
+        baseView2.addSubview(categoryPicker)
         //位置、大きさを決定
         closeBtnDatePicker.frame = CGRect(x:self.view.frame.width - 60,y:0 ,width:50,height: 20)
         //タイトルの設定
         closeBtnDatePicker.setTitle("close",for: .normal)
         //イベントの追加
         closeBtnDatePicker.addTarget(self,action: #selector(closeDatePickerView),for: .touchUpInside)
+        closeBtnDatePicker.addTarget(self,action: #selector(closeCategoryPickerView),for: .touchUpInside)
+        
+
         //viewに追加
         baseView.addSubview(closeBtnDatePicker)
+        baseView2.addSubview(closeBtnDatePicker)
         //下にぴったり配置、横幅ぴったりの大きさにしておく
         //位置
         baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)
+        baseView2.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)
         //横幅
         baseView.frame.size = CGSize(width: self.view.frame.width, height: baseView.frame.height)
+        baseView2.frame.size = CGSize(width: self.view.frame.width, height: baseView.frame.height)
         
         //背景色Grayにセット
         baseView.backgroundColor = UIColor.gray
-        
+        baseView.backgroundColor = UIColor.gray
         //画面に追加
         self.view.addSubview(baseView)
-        
+        self.view.addSubview(baseView2)
         //キーボードの上に「閉じる」ボタンを配置
         //ビューを作成
         let upView = UIView()
@@ -112,10 +131,43 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         sizeField.inputAccessoryView = upView
         priceField.inputAccessoryView = upView
         
-       
+        initImageView()
+
         
         read()
     }
+    //背景画像設定
+    private func initImageView(){
+        // UIImage インスタンスの生成
+        let image1:UIImage = UIImage(named:"closet3.jpg")!
+        
+        // UIImageView 初期化
+        let backImageView = UIImageView(image:image1)
+        
+        // 画面の横幅を取得
+        let screenWidth:CGFloat = self.formView.frame.size.width
+        let screenHeight:CGFloat = self.formView.frame.size.height
+        
+        // 画像の幅・高さの取得
+        width = image1.size.width
+        height = image1.size.height
+        
+        // 画像サイズをスクリーン幅に合わせる
+        scale = screenWidth / width
+        let rect:CGRect = CGRect(x:0, y:0, width:width*scale, height:height*scale)
+        // 画像の中心を画面の中心に設定
+        backImageView.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
+        
+        // UIImageViewのインスタンスをビューに追加
+        self.formView.addSubview(backImageView)
+        //画像最背面
+        self.formView.sendSubview(toBack: backImageView)
+        
+        backImageView.alpha = 0.5
+    }
+    //背景画像設定完了
+
+    
     
     //textFieldにカーソルが当たったとき(入力開始)
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -160,11 +212,14 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
        case 5:
         disprayDatePickerView()
             return false
-      // case 6: return false
+      
+       case 6:
+        disprayCategoryPickerView()
+        return false
         
-        default:
-            return true
-            }
+       default:
+        return true
+}
         
         return true
     }
@@ -208,6 +263,48 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     }
     
+    
+    //CategoryPickerのviewを隠す
+    func hideCategoryPickerView(){
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView2.frame.origin = CGPoint(x:0,y: self.view.frame.size.height)},completion:{finished in print("CategoryPickerを隠しました")})
+    }
+    
+    //CategoryPickerのviewを表示する
+    @IBAction func enterCategory(_ sender: UITextField) {
+    }
+       func disprayCategoryPickerView(){
+        UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView2.frame.origin = CGPoint(x:0,y: self.view.frame.size.height - self.baseView2.frame.height)},completion:{finished in print("CategoryPickerが現れました")})
+        
+    }
+    //CategoryPickerが載ったviewを隠す
+    func closeCategoryPickerView(_sender:UIButton){UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView2.frame.origin = CGPoint(x:0,y: self.view.frame.size.height)
+    },completion:{finished in print("CategoryPickerを隠しました")})
+    }
+    
+    // ピッカービューの列数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    // ピッカービューの行数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryList.count
+    }
+    
+    // ピッカービューに表示する文字
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryList[row]
+    }
+    
+    
+    //CategoryPickerで選択したときcategoryFieldに表示
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(categoryList[row])
+        categoryField.text = categoryList[row]
+        
+    }
+
+    
+    
     //すでに存在するデータの読み込み処理
     func read(){
         //AppDelegateを使う用意をしておく
@@ -220,7 +317,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //データを一括取得
             let query:NSFetchRequest<UserDate> = UserDate.fetchRequest()
             query.predicate = NSPredicate(format:"created_at = %@", selectedCD)
-            query.predicate = NSPredicate(format:"category = %@")
+          //  query.predicate = NSPredicate(format:"category = %@")
             let fetchResults = try viewContext.fetch(query)
             print("selectedCD=\(selectedCD)")
             //一旦配列を空にする(初期化)

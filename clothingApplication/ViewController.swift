@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     // サイト情報
     let category:[Dictionary<String,String>] = [
+        ["title":"ホーム","storyboardID":"HomeViewController"],
         ["title":"トップス","storyboardID":"topsViewController"],
         ["title":"パンツ","storyboardID":"pantsViewController"],
         ["title":"ジャケット","storyboardID":"jktViewController"],
@@ -35,6 +36,11 @@ class ViewController: UIViewController {
             
             let storyboardID:String = site["storyboardID"]!
             switch storyboardID{
+            case "HomeViewController":
+                let controller:HomeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                
+                controller.title = site["title"]!
+                controllerArray.append(controller)
             case "topsViewController":
                 let controller:TopsViewController = self.storyboard?.instantiateViewController(withIdentifier: "topsViewController") as! TopsViewController
                 

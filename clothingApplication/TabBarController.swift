@@ -14,8 +14,8 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         //レンダリングモードをAlwaysOriginalでボタンの画像を登録する。
         tabBar.items![0].image = UIImage(named: "Clothes-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        tabBar.items![1].image = UIImage(named: "Player Change-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-       tabBar.items![2].image = UIImage(named: "Add to Favorites-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        tabBar.items![2].image = UIImage(named: "Player Change-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+       tabBar.items![1].image = UIImage(named: "Add to Favorites-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         //tabBar.items![3].image = UIImage(named: "Screenshot-50.png")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 
     
