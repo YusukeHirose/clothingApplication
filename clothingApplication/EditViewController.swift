@@ -23,19 +23,25 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     @IBOutlet weak var sizeField: UITextField!
     
-    @IBOutlet weak var priceField: UITextField!
+ //   @IBOutlet weak var priceField: UITextField!
     
-    @IBAction func tapBack(_ sender: UIButton) {
-        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
-        self.present(next,animated: true, completion: nil)
-        
-    }
+//    @IBAction func tabBack(_ sender: UIBarButtonItem) {
+//    
+//            let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
+//        self.present(next,animated: true, completion: nil)
+//        
+//    }
     
    
     
-    //セグエ遷移(横から画面が出る)
-    @IBAction func tapBackSegue(_ sender: UIButton) {
-        performSegue(withIdentifier: "ViewController", sender: nil)
+    
+    @IBAction func backBtn(_ sender: UIBarButtonItem) {
+    
+    
+//    //セグエ遷移(横から画面が出る)
+//            performSegue(withIdentifier: "ViewController", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+
         
     }
     
@@ -129,7 +135,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         blandField.inputAccessoryView = upView
         clotheField.inputAccessoryView = upView
         sizeField.inputAccessoryView = upView
-        priceField.inputAccessoryView = upView
+       // priceField.inputAccessoryView = upView
         
         initImageView()
 
@@ -188,7 +194,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
         })
         
-        priceField.resignFirstResponder()
+     //   priceField.resignFirstResponder()
         UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
         })
 
@@ -206,9 +212,9 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             return true
        case 3:
             return true
-       case 4:
-            return true
-        
+//       case 4:
+//            return true
+//        
        case 5:
         disprayDatePickerView()
             return false
@@ -259,7 +265,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         blandField.resignFirstResponder()
         clotheField.resignFirstResponder()
         sizeField.resignFirstResponder()
-        priceField.resignFirstResponder()
+       // priceField.resignFirstResponder()
     
     }
     
@@ -340,6 +346,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             clotheField.text = "\(clothenameDate!)"
             sizeField.text = "\(sizeDate!)"
             categoryField.text = "\(categoryDate!)"
+            blandField.text = "\(blandDate!)"
                 
                 var AImage: UIImage!
                 if photDate != nil{
@@ -463,8 +470,9 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     }
     
     //保存ボタンタップで移動・追加
-    @IBAction func tapBtn(_ sender: UIButton) {
-        
+    @IBAction func tapSave(_ sender: UIBarButtonItem) {
+    
+    
         //AppDelegateを使う用意をしておく
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         //エンティティを操作するためのオブジェクトを作成
@@ -481,31 +489,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         let strURL = myDefault.string(forKey: "selectedPhotoURL")
 
         
-//        if (dateField.text == "")&&(strURL == ""){
-//            let alertController = UIAlertController(title: "保存", message: "保存しますか？", preferredStyle: .alert)
-//            //OKボタンを追加
-//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.namePicOK() }))
-//            //アラートを表示する（重要）
-//            present(alertController, animated: true, completion: nil)
-//        }else if strURL == ""{
-//            let alertController = UIAlertController(title: "画像選択", message: "画像を選択して下さい。", preferredStyle: .alert)
-//            //OKボタンを追加
-//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.picOK() }))
-//            //アラートを表示する（重要）
-//            present(alertController, animated: true, completion: nil)
-//        }else if dateField.text == "" {
-//            let alertController = UIAlertController(title: "日付入力", message: "日付を入力して下さい。", preferredStyle: .alert)
-//            //OKボタンを追加
-//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in self.nameOK() }))
-//            //アラートを表示する（重要）
-//            present(alertController, animated: true, completion: nil)
-//        }
-        
-//        if (dateField.text != "")&&(strURL != "" ){
-//            
-//           // let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//            //et viewContext = appDelegate.persistentContainer.viewContext
-//          //  let userDate = NSEntityDescription.entity(forEntityName: "UserDate", in: viewContext)
+
             let date = Date()
             let df = DateFormatter()
            // df.timeZone = TimeZone.current
@@ -535,7 +519,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         record.setValue(changeDate, forKey: "created_at") as? String
         //  newRecord.setValue(priceField.text, forKey: "price") as? Int16
                     }
-            //レコードの即時保存
+                
+                           //レコードの即時保存
             try viewContext.save()
         }catch{
             
@@ -558,8 +543,16 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
 //    }
     
     
-    @IBAction func tapCancel(_ sender: UIButton) {
-        //AppDelegateを使う用意をしておく
+    @IBAction func tapCancel(_ sender: UIBarButtonItem) {
+    
+        let alertController = UIAlertController(title: "削除", message: "データを削除しました", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction (title:"OK", style: .default, handler: {action in self.myOK()}))
+        
+        //アラートを表示する
+        present(alertController,animated: true, completion: nil)
+        
+        
+            //AppDelegateを使う用意をしておく
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         
         
@@ -585,6 +578,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
     }
     
+    func myOK(){
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         print(selectedDate)

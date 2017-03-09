@@ -148,13 +148,15 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
     
     //MARK: Navigation
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-       
-        let next = storyboard!.instantiateViewController(withIdentifier: "want2EditViewController")
-        self.present(next,animated: true, completion: nil)
-
-        
-    }
+//    @IBAction func cancel(_ sender: UIBarButtonItem) {
+//       
+//       let next = storyboard!.instantiateViewController(withIdentifier: "want2ViewController")
+//        self.dismiss(animated: true, completion: nil)
+//
+//       
+// 
+//        
+//    }
 
     //MARK: 画像を選択したとき
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
@@ -210,6 +212,10 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
             // navigationController?.popViewController(animated: true)
         } catch {
         }
+        let next = storyboard!.instantiateViewController(withIdentifier: "want2ViewController")
+        self.dismiss(animated: true, completion: nil)
+        
+
         
         read()
     }

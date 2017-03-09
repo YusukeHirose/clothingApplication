@@ -17,12 +17,14 @@ class ViewController: UIViewController {
     
     // サイト情報
     let category:[Dictionary<String,String>] = [
-        ["title":"ホーム","storyboardID":"HomeViewController"],
+        
         ["title":"トップス","storyboardID":"topsViewController"],
         ["title":"パンツ","storyboardID":"pantsViewController"],
         ["title":"ジャケット","storyboardID":"jktViewController"],
         ["title":"アウター","storyboardID":"outerViewController"],
-        ["title":"シューズ","storyboardID":"outerViewController"]
+        ["title":"シューズ","storyboardID":"outerViewController"],
+        ["title":"キャップ","storyboardID":"capViewController"],
+        ["title":"その他","storyboardID":"komonoViewController"]
     ]
     
     
@@ -36,11 +38,7 @@ class ViewController: UIViewController {
             
             let storyboardID:String = site["storyboardID"]!
             switch storyboardID{
-            case "HomeViewController":
-                let controller:HomeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                
-                controller.title = site["title"]!
-                controllerArray.append(controller)
+            
             case "topsViewController":
                 let controller:TopsViewController = self.storyboard?.instantiateViewController(withIdentifier: "topsViewController") as! TopsViewController
                 
@@ -61,6 +59,27 @@ class ViewController: UIViewController {
                 
                 controller.title = site["title"]!
                 controllerArray.append(controller)
+                
+            case "shoesViewController":
+                let controller:shoesViewController = self.storyboard?.instantiateViewController(withIdentifier: "shoesViewController") as! shoesViewController
+                
+                controller.title = site["title"]!
+                controllerArray.append(controller)
+                
+            case "capViewController":
+                let controller:capViewController = self.storyboard?.instantiateViewController(withIdentifier: "capViewController") as! capViewController
+                
+                controller.title = site["title"]!
+                controllerArray.append(controller)
+    
+                
+            case "komonoViewController":
+                let controller:komonoViewController = self.storyboard?.instantiateViewController(withIdentifier: "komonoViewController") as! komonoViewController
+                
+                controller.title = site["title"]!
+                controllerArray.append(controller)
+                
+
 
             default:
                 let controller :ContentsViewController = ContentsViewController(nibName: "ContentsViewController", bundle: nil)

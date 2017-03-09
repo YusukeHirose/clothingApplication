@@ -15,7 +15,9 @@ import Photos
 
 
 class shoesViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+   
     @IBOutlet weak var myCollectionView: UICollectionView!
+    
     
     //画像ボタン作成
     let image : UIImage = UIImage(named:"toNewEdit.png")!

@@ -97,7 +97,12 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         //とってきてるのはディクショナリー型なのでディクショナリーで変換する
         var wantDic = wantArray[indexPath.row] as! NSDictionary
-        cell.wantName.text = wantDic["wantname"] as! String
+        cell.wantName.text = wantDic["wantname"] as!String
+        cell.wantBlandName.text = wantDic["wantbland"]as!String
+        cell.wantPrice.text = wantDic["wantprice"]as!String
+        
+        
+        
         
         //画像
         var imgDic = wantArray[indexPath.row] as! NSDictionary

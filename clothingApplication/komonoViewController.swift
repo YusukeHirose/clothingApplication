@@ -14,10 +14,10 @@ import Photos
 
 
 
-class outerViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class komonoViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
-    
+       
     //画像ボタン作成
     let image : UIImage = UIImage(named:"toNewEdit.png")!
     
@@ -91,7 +91,7 @@ class outerViewController: UIViewController,UICollectionViewDataSource,UICollect
         let viewContext = appDelegate.persistentContainer.viewContext
         //どのエンティティからdataを取得してくるか設定
         let query: NSFetchRequest<UserDate> = UserDate.fetchRequest()
-        query.predicate = NSPredicate(format:"category = %@","アウター")
+        query.predicate = NSPredicate(format:"category = %@","その他小物")
         // print("selectedCD=\(selectedCD)")
         
         
@@ -222,4 +222,5 @@ class outerViewController: UIViewController,UICollectionViewDataSource,UICollect
     
     
 }
+
 

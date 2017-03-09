@@ -36,6 +36,8 @@
 		CE5C7C3E1E5160E500D5A433 /* oslob.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */; };
 		CE61781B1E70F45400645E36 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6178191E70F45400645E36 /* User+CoreDataClass.swift */; };
 		CE61781C1E70F45400645E36 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61781A1E70F45400645E36 /* User+CoreDataProperties.swift */; };
+		CE61781E1E71BA0A00645E36 /* komonoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61781D1E71BA0A00645E36 /* komonoViewController.swift */; };
+		CE6178201E71CB5100645E36 /* capViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61781F1E71CB5100645E36 /* capViewController.swift */; };
 		CE7E296D1E531DFE005B78B7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E296C1E531DFE005B78B7 /* EditViewController.swift */; };
 		CEB6BA601E5A8F630063B87C /* cameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */; };
 		CEB6BA621E5AE3D90063B87C /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */; };
@@ -49,7 +51,6 @@
 		CED4F8EB1E70F046000AF5A6 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */; };
 		CED4F8EC1E70F046000AF5A6 /* ContentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */; };
 		CED748C31E672BEE00709B2E /* closet3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED748C21E672BEE00709B2E /* closet3.jpg */; };
-		CEFBB1F71E6FA39000A9D62C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1F61E6FA39000A9D62C /* HomeViewController.swift */; };
 		CEFBB1FD1E6FAB0A00A9D62C /* want2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */; };
 		CEFBB1FF1E6FAB3F00A9D62C /* wantEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */; };
 		CEFBB2011E6FADDC00A9D62C /* tableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB2001E6FADDC00A9D62C /* tableCell.swift */; };
@@ -115,6 +116,8 @@
 		CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oslob.jpeg; sourceTree = "<group>"; };
 		CE6178191E70F45400645E36 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE61781A1E70F45400645E36 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE61781D1E71BA0A00645E36 /* komonoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = komonoViewController.swift; sourceTree = "<group>"; };
+		CE61781F1E71CB5100645E36 /* capViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = capViewController.swift; sourceTree = "<group>"; };
 		CE7E296C1E531DFE005B78B7 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraViewController.swift; sourceTree = "<group>"; };
 		CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
@@ -128,7 +131,6 @@
 		CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentsViewController.xib; sourceTree = "<group>"; };
 		CED748C21E672BEE00709B2E /* closet3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = closet3.jpg; path = ../../../../Desktop/closet3.jpg; sourceTree = "<group>"; };
-		CEFBB1F61E6FA39000A9D62C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = want2ViewController.swift; sourceTree = "<group>"; };
 		CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wantEditViewController.swift; sourceTree = "<group>"; };
 		CEFBB2001E6FADDC00A9D62C /* tableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableCell.swift; sourceTree = "<group>"; };
@@ -218,12 +220,13 @@
 				CE4B55AA1E4B4BF000003686 /* AppDelegate.swift */,
 				CEB6BA651E5AF2F20063B87C /* ViewController.swift */,
 				CED4F8E71E7035A3000AF5A6 /* InfoViewController.swift */,
-				CEFBB1F61E6FA39000A9D62C /* HomeViewController.swift */,
 				CE4B55AC1E4B4BF000003686 /* TopsViewController.swift */,
 				CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */,
 				CEB6BA6D1E5B4FCF0063B87C /* jktViewController.swift */,
 				CEB6BA6F1E5B50110063B87C /* outerViewController.swift */,
 				CE4E701F1E6843D0000B27E1 /* shoesViewController.swift */,
+				CE61781F1E71CB5100645E36 /* capViewController.swift */,
+				CE61781D1E71BA0A00645E36 /* komonoViewController.swift */,
 				CE7E296C1E531DFE005B78B7 /* EditViewController.swift */,
 				CE1D60311E5E89BB0044ED2E /* NewEditViewController.swift */,
 				CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */,
@@ -586,12 +589,13 @@
 				CE61781C1E70F45400645E36 /* User+CoreDataProperties.swift in Sources */,
 				CEB6BA6E1E5B4FCF0063B87C /* jktViewController.swift in Sources */,
 				CEB6BA701E5B50110063B87C /* outerViewController.swift in Sources */,
+				CE6178201E71CB5100645E36 /* capViewController.swift in Sources */,
 				CEFBB2011E6FADDC00A9D62C /* tableCell.swift in Sources */,
 				CE48AF1C1E50B50500404543 /* TabBarController.swift in Sources */,
 				CED4F8EB1E70F046000AF5A6 /* ContentsViewController.swift in Sources */,
+				CE61781E1E71BA0A00645E36 /* komonoViewController.swift in Sources */,
 				CEFBB1FD1E6FAB0A00A9D62C /* want2ViewController.swift in Sources */,
 				CED4A5441E4EFE5400E5CD02 /* customCell.swift in Sources */,
-				CEFBB1F71E6FA39000A9D62C /* HomeViewController.swift in Sources */,
 				CE4B55AB1E4B4BF000003686 /* AppDelegate.swift in Sources */,
 				CE61781B1E70F45400645E36 /* User+CoreDataClass.swift in Sources */,
 				CE0799D71E5541590025B577 /* UserDate+CoreDataProperties.swift in Sources */,

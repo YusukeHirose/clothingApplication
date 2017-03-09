@@ -65,8 +65,10 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     var screenWidth:CGFloat = 0
     var screenHeight:CGFloat = 0
     
-    @IBAction func tapBack(_ sender: UIButton) {
-        
+   
+    @IBAction func tapBack(_ sender: UIBarButtonItem) {
+    
+    
 //        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
 //        self.present(next,animated: true, completion: nil)
         
@@ -76,7 +78,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017/02/21"],["category":"パーカー"],["price":"1200"]]
+        photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017/02/21"],["category":"パーカー"]]
         
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
@@ -135,7 +137,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         blandField2.inputAccessoryView = upView
         clotheField2.inputAccessoryView = upView
         sizeField2.inputAccessoryView = upView
-        priceField2.inputAccessoryView = upView
+        //priceField2.inputAccessoryView = upView
         
             editImage2.image = UIImage(named: "noimages.png")
         
@@ -163,7 +165,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         
         // 画像サイズをスクリーン幅に合わせる
         scale = screenWidth / width
-        let rect:CGRect = CGRect(x:0, y:0, width:width*scale, height:height*scale)
+        let rect:CGRect = CGRect(x:0, y:10, width:width*scale, height:height*scale)
         // 画像の中心を画面の中心に設定
         backImageView.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
         
@@ -195,9 +197,9 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
         })
         
-        priceField2.resignFirstResponder()
-        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
-        })
+//        priceField2.resignFirstResponder()
+//        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+//        })
         
         
         
@@ -213,9 +215,9 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
             return true
         case 3:
             return true
-        case 4:
-            return true
-            
+//        case 4:
+//            return true
+//            
         case 5:
             disprayDatePickerView()
             return false
@@ -265,7 +267,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         blandField2.resignFirstResponder()
         clotheField2.resignFirstResponder()
         sizeField2.resignFirstResponder()
-        priceField2.resignFirstResponder()
+      //  priceField2.resignFirstResponder()
         
     }
     
@@ -343,7 +345,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
                 var changeDate: String? = result.value(forKey:"created_at") as? String
                 // var priceDate: Int16? = result.value(forKey: "price") as? Int16
                 
-                photlist.append(["phot":editImage2.image,"clothename":clotheField2.text,"size":sizeField2.text,"blandname":blandField2.text,"date":dateField2,"category":categoryField2,"price":priceField2.text,])
+                photlist.append(["phot":editImage2.image,"clothename":clotheField2.text,"size":sizeField2.text,"blandname":blandField2.text,"date":dateField2,"category":categoryField2,])
                 
                 
                 
@@ -456,7 +458,9 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     }
     
     //保存ボタンタップで画像をcollectionViewに追加する&&collectionViewに戻る
-    @IBAction func tapBtn(_ sender: UIButton) {
+   
+    @IBAction func tapSAVE(_ sender: UIBarButtonItem) {
+    
         
        // AppDelegateを使う用意をしておく
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
