@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "clothingApplication/NewEditViewController.swift"
-            timestampString = "510633214.531697"
+            timestampString = "510719568.263002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
             landmarkName = "tapBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>

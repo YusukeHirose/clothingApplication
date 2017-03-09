@@ -2,17 +2,17 @@
 //  ContentsViewController.swift
 //  clothingApplication
 //
-//  Created by User on 2017/02/20.
+//  Created by User on 2017/03/09.
 //  Copyright © 2017年 Yusuke Hirose. All rights reserved.
 //
-
 import UIKit
 
-class ContentsViewController: UIViewController {
-
-    var webView:UIWebView!
+class ContentsViewController: UIViewController ,UIWebViewDelegate{
     
-
+    var webView:UIWebView!
+    var siteUrl:String!
+    
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -20,19 +20,20 @@ class ContentsViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+}
+
 
     /*
     // MARK: - Navigation
@@ -44,4 +45,4 @@ class ContentsViewController: UIViewController {
     }
     */
 
-}
+

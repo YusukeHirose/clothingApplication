@@ -5,7 +5,7 @@
         <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wantbland" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wantname" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="wantsize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wantprice" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="UserDate" representedClassName=".UserDate" isAbstract="YES" syncable="YES">
         <attribute name="blandname" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +18,7 @@
         <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserDate" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="User" positionX="-54" positionY="54" width="128" height="120"/>
+        <element name="UserDate" positionX="-54" positionY="-9" width="128" height="165"/>
     </elements>
 </model>

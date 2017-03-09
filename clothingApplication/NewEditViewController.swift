@@ -67,8 +67,10 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     
     @IBAction func tapBack(_ sender: UIButton) {
         
-        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
-        self.present(next,animated: true, completion: nil)
+//        let next = storyboard!.instantiateViewController(withIdentifier: "ViewController")
+//        self.present(next,animated: true, completion: nil)
+        
+        self.dismiss(animated: true, completion: nil)
 
     }
     override func viewDidLoad() {

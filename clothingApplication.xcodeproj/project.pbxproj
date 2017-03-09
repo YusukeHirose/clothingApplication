@@ -34,23 +34,25 @@
 		CE59C51C1E5C38D7000BD499 /* noimages.png in Resources */ = {isa = PBXBuildFile; fileRef = CE59C51B1E5C38D7000BD499 /* noimages.png */; };
 		CE5C7C3C1E515E3F00D5A433 /* BlandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */; };
 		CE5C7C3E1E5160E500D5A433 /* oslob.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */; };
+		CE61781B1E70F45400645E36 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6178191E70F45400645E36 /* User+CoreDataClass.swift */; };
+		CE61781C1E70F45400645E36 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61781A1E70F45400645E36 /* User+CoreDataProperties.swift */; };
 		CE7E296D1E531DFE005B78B7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E296C1E531DFE005B78B7 /* EditViewController.swift */; };
 		CEB6BA601E5A8F630063B87C /* cameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */; };
 		CEB6BA621E5AE3D90063B87C /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */; };
-		CEB6BA641E5AE4E60063B87C /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */; };
 		CEB6BA661E5AF2F20063B87C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA651E5AF2F20063B87C /* ViewController.swift */; };
 		CEB6BA681E5AF6D40063B87C /* PantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */; };
 		CEB6BA6E1E5B4FCF0063B87C /* jktViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA6D1E5B4FCF0063B87C /* jktViewController.swift */; };
 		CEB6BA701E5B50110063B87C /* outerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6BA6F1E5B50110063B87C /* outerViewController.swift */; };
 		CED4A5441E4EFE5400E5CD02 /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4A5431E4EFE5400E5CD02 /* customCell.swift */; };
 		CED4A5461E4F017400E5CD02 /* Dog2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED4A5451E4F017400E5CD02 /* Dog2x.jpg */; };
+		CED4F8E81E7035A3000AF5A6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4F8E71E7035A3000AF5A6 /* InfoViewController.swift */; };
+		CED4F8EB1E70F046000AF5A6 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */; };
+		CED4F8EC1E70F046000AF5A6 /* ContentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */; };
 		CED748C31E672BEE00709B2E /* closet3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED748C21E672BEE00709B2E /* closet3.jpg */; };
 		CEFBB1F71E6FA39000A9D62C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1F61E6FA39000A9D62C /* HomeViewController.swift */; };
 		CEFBB1FD1E6FAB0A00A9D62C /* want2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */; };
 		CEFBB1FF1E6FAB3F00A9D62C /* wantEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */; };
 		CEFBB2011E6FADDC00A9D62C /* tableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB2001E6FADDC00A9D62C /* tableCell.swift */; };
-		CEFBB2041E6FB39500A9D62C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB2021E6FB39500A9D62C /* User+CoreDataClass.swift */; };
-		CEFBB2051E6FB39500A9D62C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB2031E6FB39500A9D62C /* User+CoreDataProperties.swift */; };
 		F558D6EED9F06AC4EA3FD888 /* Pods_clothingApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11012C84B19CC1537B7268F5 /* Pods_clothingApplicationTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,23 +113,25 @@
 		CE59C51B1E5C38D7000BD499 /* noimages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noimages.png; path = ../../../../Desktop/noimages.png; sourceTree = "<group>"; };
 		CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlandViewController.swift; sourceTree = "<group>"; };
 		CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oslob.jpeg; sourceTree = "<group>"; };
+		CE6178191E70F45400645E36 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE61781A1E70F45400645E36 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE7E296C1E531DFE005B78B7 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraViewController.swift; sourceTree = "<group>"; };
 		CEB6BA611E5AE3D90063B87C /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
-		CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		CEB6BA651E5AF2F20063B87C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantsViewController.swift; sourceTree = "<group>"; };
 		CEB6BA6D1E5B4FCF0063B87C /* jktViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jktViewController.swift; sourceTree = "<group>"; };
 		CEB6BA6F1E5B50110063B87C /* outerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outerViewController.swift; sourceTree = "<group>"; };
 		CED4A5431E4EFE5400E5CD02 /* customCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
 		CED4A5451E4F017400E5CD02 /* Dog2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog2x.jpg; sourceTree = "<group>"; };
+		CED4F8E71E7035A3000AF5A6 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
+		CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentsViewController.xib; sourceTree = "<group>"; };
 		CED748C21E672BEE00709B2E /* closet3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = closet3.jpg; path = ../../../../Desktop/closet3.jpg; sourceTree = "<group>"; };
 		CEFBB1F61E6FA39000A9D62C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = want2ViewController.swift; sourceTree = "<group>"; };
 		CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wantEditViewController.swift; sourceTree = "<group>"; };
 		CEFBB2001E6FADDC00A9D62C /* tableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableCell.swift; sourceTree = "<group>"; };
-		CEFBB2021E6FB39500A9D62C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CEFBB2031E6FB39500A9D62C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4A45D7E5D74A81CC0D26529 /* Pods-clothingApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clothingApplicationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clothingApplicationUITests/Pods-clothingApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,8 +189,8 @@
 		CE4B559E1E4B4BF000003686 = {
 			isa = PBXGroup;
 			children = (
-				CEFBB2021E6FB39500A9D62C /* User+CoreDataClass.swift */,
-				CEFBB2031E6FB39500A9D62C /* User+CoreDataProperties.swift */,
+				CE6178191E70F45400645E36 /* User+CoreDataClass.swift */,
+				CE61781A1E70F45400645E36 /* User+CoreDataProperties.swift */,
 				CE0799D41E5541590025B577 /* UserDate+CoreDataClass.swift */,
 				CE0799D51E5541590025B577 /* UserDate+CoreDataProperties.swift */,
 				CE4B55A91E4B4BF000003686 /* clothingApplication */,
@@ -213,6 +217,7 @@
 			children = (
 				CE4B55AA1E4B4BF000003686 /* AppDelegate.swift */,
 				CEB6BA651E5AF2F20063B87C /* ViewController.swift */,
+				CED4F8E71E7035A3000AF5A6 /* InfoViewController.swift */,
 				CEFBB1F61E6FA39000A9D62C /* HomeViewController.swift */,
 				CE4B55AC1E4B4BF000003686 /* TopsViewController.swift */,
 				CEB6BA671E5AF6D40063B87C /* PantsViewController.swift */,
@@ -247,7 +252,8 @@
 				CE5C7C3B1E515E3F00D5A433 /* BlandViewController.swift */,
 				CE07998D1E544A410025B577 /* CApplication.xcdatamodeld */,
 				CEB6BA5F1E5A8F630063B87C /* cameraViewController.swift */,
-				CEB6BA631E5AE4E60063B87C /* ContentsViewController.swift */,
+				CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */,
+				CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */,
 			);
 			path = clothingApplication;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				CE5C7C3E1E5160E500D5A433 /* oslob.jpeg in Resources */,
 				CE59C51C1E5C38D7000BD499 /* noimages.png in Resources */,
 				CE48AF261E50C17E00404543 /* Add to Favorites-50.png in Resources */,
+				CED4F8EC1E70F046000AF5A6 /* ContentsViewController.xib in Resources */,
 				CED748C31E672BEE00709B2E /* closet3.jpg in Resources */,
 				CE48AF201E50BB8500404543 /* huku.png in Resources */,
 				CE4B55B21E4B4BF000003686 /* Assets.xcassets in Resources */,
@@ -571,23 +578,24 @@
 				CEB6BA681E5AF6D40063B87C /* PantsViewController.swift in Sources */,
 				CE48AF181E509C8000404543 /* WantListViewController.swift in Sources */,
 				CEB6BA621E5AE3D90063B87C /* CAPSPageMenu.swift in Sources */,
-				CEB6BA641E5AE4E60063B87C /* ContentsViewController.swift in Sources */,
 				CEB6BA661E5AF2F20063B87C /* ViewController.swift in Sources */,
 				CE4B55AD1E4B4BF000003686 /* TopsViewController.swift in Sources */,
-				CEFBB2051E6FB39500A9D62C /* User+CoreDataProperties.swift in Sources */,
 				CEB6BA601E5A8F630063B87C /* cameraViewController.swift in Sources */,
 				CE0799D61E5541590025B577 /* UserDate+CoreDataClass.swift in Sources */,
 				CE5C7C3C1E515E3F00D5A433 /* BlandViewController.swift in Sources */,
+				CE61781C1E70F45400645E36 /* User+CoreDataProperties.swift in Sources */,
 				CEB6BA6E1E5B4FCF0063B87C /* jktViewController.swift in Sources */,
 				CEB6BA701E5B50110063B87C /* outerViewController.swift in Sources */,
 				CEFBB2011E6FADDC00A9D62C /* tableCell.swift in Sources */,
-				CEFBB2041E6FB39500A9D62C /* User+CoreDataClass.swift in Sources */,
 				CE48AF1C1E50B50500404543 /* TabBarController.swift in Sources */,
+				CED4F8EB1E70F046000AF5A6 /* ContentsViewController.swift in Sources */,
 				CEFBB1FD1E6FAB0A00A9D62C /* want2ViewController.swift in Sources */,
 				CED4A5441E4EFE5400E5CD02 /* customCell.swift in Sources */,
 				CEFBB1F71E6FA39000A9D62C /* HomeViewController.swift in Sources */,
 				CE4B55AB1E4B4BF000003686 /* AppDelegate.swift in Sources */,
+				CE61781B1E70F45400645E36 /* User+CoreDataClass.swift in Sources */,
 				CE0799D71E5541590025B577 /* UserDate+CoreDataProperties.swift in Sources */,
+				CED4F8E81E7035A3000AF5A6 /* InfoViewController.swift in Sources */,
 				CE7E296D1E531DFE005B78B7 /* EditViewController.swift in Sources */,
 				CE1D60321E5E89BB0044ED2E /* NewEditViewController.swift in Sources */,
 				CEFBB1FF1E6FAB3F00A9D62C /* wantEditViewController.swift in Sources */,
