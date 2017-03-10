@@ -18,6 +18,7 @@ class capViewController: UIViewController,UICollectionViewDataSource,UICollectio
     
    
     
+    @IBOutlet weak var myCollectionView: UICollectionView!
     
     //画像ボタン作成
     let image : UIImage = UIImage(named:"toNewEdit.png")!

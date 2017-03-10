@@ -24,7 +24,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     
     @IBOutlet weak var sizeField2: UITextField!
     
-    @IBOutlet weak var priceField2: UITextField!
+   // @IBOutlet weak var priceField2: UITextField!
     
     
     
@@ -53,6 +53,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     let categoryPicker:UIPickerView = UIPickerView(frame: CGRect(x:10,y:20, width:300,height:250))
     //datePickerを隠すためのボタン
     let closeBtnDatePicker:UIButton = UIButton(type: .system)
+    let closeBtnCategoryPicker:UIButton = UIButton(type: .system)
     
     var photList = NSMutableArray()
 
@@ -93,15 +94,18 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         baseView2.addSubview(categoryPicker)
         //位置、大きさを決定
         closeBtnDatePicker.frame = CGRect(x:self.view.frame.width - 60,y:0 ,width:50,height: 20)
+        closeBtnCategoryPicker.frame = CGRect(x:self.view.frame.width - 60,y:0 ,width:50,height: 20)
+        
         //タイトルの設定
         closeBtnDatePicker.setTitle("close",for: .normal)
+        closeBtnCategoryPicker.setTitle("close",for: .normal)
         //イベントの追加
         closeBtnDatePicker.addTarget(self,action: #selector(closeDatePickerView),for: .touchUpInside)
-        closeBtnDatePicker.addTarget(self,action: #selector(closeCategoryPickerView),for: .touchUpInside)
+        closeBtnCategoryPicker.addTarget(self,action: #selector(closeCategoryPickerView),for: .touchUpInside)
         
         //viewに追加
         baseView.addSubview(closeBtnDatePicker)
-        baseView2.addSubview(closeBtnDatePicker)
+        baseView2.addSubview(closeBtnCategoryPicker)
         //下にぴったり配置、横幅ぴったりの大きさにしておく
         //位置
         baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)

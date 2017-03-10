@@ -62,6 +62,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     let categoryPicker:UIPickerView = UIPickerView(frame: CGRect(x:10,y:20, width:300,height:250))
     //datePickerを隠すためのボタン
     let closeBtnDatePicker:UIButton = UIButton(type: .system)
+    let closeBtnCategoryPicker:UIButton = UIButton(type: .system)
+
     
     var photList = NSMutableArray()
     
@@ -92,16 +94,16 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         baseView2.addSubview(categoryPicker)
         //位置、大きさを決定
         closeBtnDatePicker.frame = CGRect(x:self.view.frame.width - 60,y:0 ,width:50,height: 20)
+        closeBtnCategoryPicker.frame = CGRect(x:self.view.frame.width - 60,y:0 ,width:50,height: 20)
         //タイトルの設定
         closeBtnDatePicker.setTitle("close",for: .normal)
+        closeBtnCategoryPicker.setTitle("close",for: .normal)
         //イベントの追加
         closeBtnDatePicker.addTarget(self,action: #selector(closeDatePickerView),for: .touchUpInside)
-        closeBtnDatePicker.addTarget(self,action: #selector(closeCategoryPickerView),for: .touchUpInside)
-        
-
+        closeBtnCategoryPicker.addTarget(self,action: #selector(closeCategoryPickerView),for: .touchUpInside)
         //viewに追加
         baseView.addSubview(closeBtnDatePicker)
-        baseView2.addSubview(closeBtnDatePicker)
+        baseView2.addSubview(closeBtnCategoryPicker)
         //下にぴったり配置、横幅ぴったりの大きさにしておく
         //位置
         baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)
@@ -112,7 +114,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
         //背景色Grayにセット
         baseView.backgroundColor = UIColor.gray
-        baseView.backgroundColor = UIColor.gray
+        baseView2.backgroundColor = UIColor.gray
         //画面に追加
         self.view.addSubview(baseView)
         self.view.addSubview(baseView2)
@@ -166,7 +168,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         
         // UIImageViewのインスタンスをビューに追加
         self.formView.addSubview(backImageView)
-        //画像最背面
+//        //画像最背面
         self.formView.sendSubview(toBack: backImageView)
         
         backImageView.alpha = 0.5
@@ -502,8 +504,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                 let strSavedDate: String = df.string(from: date)
                 let savedDate :Date = df.date(from: strSavedDate)!
             do {
-                  let namePredicte = NSPredicate(format: "created_at = %@", savedDate as CVarArg)
-                   request.predicate = namePredicte
+                   request.predicate = NSPredicate(format:"created_at = %@", selectedCD)
+                   //request.predicate = namePredicte
                    let fetchResults = try viewContext.fetch(request)
                     //登録された日付を元に1件取得　新しい値を入れる
                     for result: AnyObject in fetchResults {
