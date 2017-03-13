@@ -25,6 +25,7 @@ class PantsViewController: UIViewController,UICollectionViewDataSource,UICollect
     
     // 画面が表示されたとき
     override func viewWillAppear(_ animated: Bool) {
+        read()
            }
     
     //let photos = ["ayala","moalboal","oslob"]

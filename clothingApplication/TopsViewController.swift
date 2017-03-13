@@ -35,6 +35,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewWillAppear(_ animated: Bool) {
          //Appdelegateにアクセスするための準備
         //let myApp = UIApplication.shared.delegate as! AppDelegate
+        read()
     }
     
     

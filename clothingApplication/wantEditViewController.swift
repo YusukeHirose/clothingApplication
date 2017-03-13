@@ -30,6 +30,12 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        var navBarImage = UIImage(named: "ki.jpeg") as UIImage?
+        
+        self.navigationController?.navigationBar.setBackgroundImage(navBarImage,for:.default)
+
 
         photImageView.image = UIImage(named: "noimages.png")
 

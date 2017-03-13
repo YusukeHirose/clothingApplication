@@ -78,6 +78,11 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        var navBarImage = UIImage(named: "ki.jpeg") as UIImage?
+        
+        self.navigationController?.navigationBar.setBackgroundImage(navBarImage,for:.default)
 
         photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017/02/21"],["category":"パーカー"]]
         
@@ -525,6 +530,11 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
 
 }
 
+    override func viewWillAppear(_ animated: Bool) {
+        print(selectedDate)
+        read()
+    }
+  
         
     //OKボタンが押されたら発動するメソッド
     func myOK (){

@@ -79,6 +79,11 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        var navBarImage = UIImage(named: "ki.jpeg") as UIImage?
+        
+        self.navigationController?.navigationBar.setBackgroundImage(navBarImage,for:.default)
+        
         photList = [["phot":"noimages.png"],["clothename":"黒パーカー"],["size":"S"],["blandname":"ユニクロ"],["date":"2017/02/21"],["category":"パーカー"],["price":"1200"]]
         
         categoryPicker.dataSource = self
@@ -518,7 +523,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         record.setValue(blandField.text, forKey: "blandname")
         record.setValue(selectedDate, forKey: "date") as? String
         record.setValue(categoryField.text, forKey: "category")
-        record.setValue(changeDate, forKey: "created_at") as? String
+        record.setValue(df.string(from: Date()) ,forKey: "created_at") as? String
         //  newRecord.setValue(priceField.text, forKey: "price") as? Int16
                     }
                 
@@ -585,6 +590,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
     override func viewWillAppear(_ animated: Bool) {
         print(selectedDate)
+        read()
     }
     
     /*

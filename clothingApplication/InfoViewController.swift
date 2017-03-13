@@ -63,23 +63,23 @@ class infoViewController: UIViewController {
             
         }
 
-            
         // Customize menu (Optional)
         let parameters: [CAPSPageMenuOption] = [
             .scrollMenuBackgroundColor(UIColor.black),
             .viewBackgroundColor(UIColor.white),
             .bottomMenuHairlineColor(UIColor.white),
-            .selectionIndicatorColor(UIColor.brown),
+            .selectionIndicatorColor(UIColor.blue),
             .menuItemFont(UIFont(name: "HelveticaNeue", size: 20.0)!),
             .centerMenuItems(true),
             .menuItemWidthBasedOnTitleTextWidth(true),
-            .menuMargin(20),
-            .selectedMenuItemLabelColor(UIColor.brown),
+            .menuMargin(10),
+            .selectedMenuItemLabelColor(UIColor.blue),
             .unselectedMenuItemLabelColor(UIColor.white)
             
         ]
+
         
-        // Initialize scroll menu
+               // Initialize scroll menu
         
         let rect = CGRect(origin: CGPoint(x: 0,y :60), size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: rect, pageMenuOptions: parameters)

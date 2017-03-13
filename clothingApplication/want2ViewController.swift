@@ -31,8 +31,13 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        var navBarImage = UIImage(named: "ki.jpeg") as UIImage?
+        
+        self.navigationController?.navigationBar.setBackgroundImage(navBarImage,for:.default)
+        
+    
+
+           }
     
     
    
@@ -108,7 +113,7 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         var imgDic = wantArray[indexPath.row] as! NSDictionary
         
         var AImage: UIImage!
-        if imgDic["img"] as? String == nil {
+        if imgDic["img"] as? String == "" {
             cell.wantImage.image = UIImage(named: "noimages.png")
             
         } else {

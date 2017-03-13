@@ -106,12 +106,12 @@ class ViewController: UIViewController {
             .scrollMenuBackgroundColor(UIColor.black),
             .viewBackgroundColor(UIColor.white),
             .bottomMenuHairlineColor(UIColor.white),
-            .selectionIndicatorColor(UIColor.brown),
+            .selectionIndicatorColor(UIColor.blue),
             .menuItemFont(UIFont(name: "HelveticaNeue", size: 20.0)!),
             .centerMenuItems(true),
             .menuItemWidthBasedOnTitleTextWidth(true),
-            .menuMargin(20),
-            .selectedMenuItemLabelColor(UIColor.brown),
+            .menuMargin(10),
+            .selectedMenuItemLabelColor(UIColor.blue),
             .unselectedMenuItemLabelColor(UIColor.white)
             
         ]

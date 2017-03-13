@@ -13,12 +13,12 @@ class tableCell: UITableViewCell {
     @IBOutlet weak var wantImage: UIImageView!
     
     
-    @IBOutlet weak var wantName: UITextField!
+    @IBOutlet weak var wantName: UILabel!
     
-    @IBOutlet weak var wantBlandName: UITextField!
+    @IBOutlet weak var wantBlandName: UILabel!
     
-    @IBOutlet weak var wantPrice: UITextField!
-    
+    @IBOutlet weak var wantPrice: UILabel!
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
