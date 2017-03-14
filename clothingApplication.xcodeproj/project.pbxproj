@@ -48,7 +48,6 @@
 		CED4F8E81E7035A3000AF5A6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4F8E71E7035A3000AF5A6 /* InfoViewController.swift */; };
 		CED4F8EB1E70F046000AF5A6 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */; };
 		CED4F8EC1E70F046000AF5A6 /* ContentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */; };
-		CED748C31E672BEE00709B2E /* closet3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED748C21E672BEE00709B2E /* closet3.jpg */; };
 		CEFBB1FD1E6FAB0A00A9D62C /* want2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */; };
 		CEFBB1FF1E6FAB3F00A9D62C /* wantEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */; };
 		CEFBB2011E6FADDC00A9D62C /* tableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB2001E6FADDC00A9D62C /* tableCell.swift */; };
@@ -108,7 +107,7 @@
 		CE4B55CA1E4B4BF000003686 /* clothingApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingApplicationUITests.swift; sourceTree = "<group>"; };
 		CE4B55CC1E4B4BF000003686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4E701F1E6843D0000B27E1 /* shoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shoesViewController.swift; sourceTree = "<group>"; };
-		CE59C51B1E5C38D7000BD499 /* noimages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noimages.png; path = ../../../../Desktop/noimages.png; sourceTree = "<group>"; };
+		CE59C51B1E5C38D7000BD499 /* noimages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimages.png; sourceTree = "<group>"; };
 		CE5C7C3D1E5160E500D5A433 /* oslob.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oslob.jpeg; sourceTree = "<group>"; };
 		CE6178191E70F45400645E36 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE61781A1E70F45400645E36 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -126,7 +125,6 @@
 		CED4F8E71E7035A3000AF5A6 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		CED4F8E91E70F046000AF5A6 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		CED4F8EA1E70F046000AF5A6 /* ContentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentsViewController.xib; sourceTree = "<group>"; };
-		CED748C21E672BEE00709B2E /* closet3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = closet3.jpg; path = ../../../../Desktop/closet3.jpg; sourceTree = "<group>"; };
 		CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = want2ViewController.swift; sourceTree = "<group>"; };
 		CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wantEditViewController.swift; sourceTree = "<group>"; };
 		CEFBB2001E6FADDC00A9D62C /* tableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableCell.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				CEFBB1FC1E6FAB0A00A9D62C /* want2ViewController.swift */,
 				CEFBB1FE1E6FAB3F00A9D62C /* wantEditViewController.swift */,
 				CEFBB2001E6FADDC00A9D62C /* tableCell.swift */,
-				CED748C21E672BEE00709B2E /* closet3.jpg */,
 				CE1D60351E62A0600044ED2E /* toNewEdit.png */,
 				CE59C51B1E5C38D7000BD499 /* noimages.png */,
 				CE4B55AE1E4B4BF000003686 /* Main.storyboard */,
@@ -401,7 +398,6 @@
 				CE59C51C1E5C38D7000BD499 /* noimages.png in Resources */,
 				CE48AF261E50C17E00404543 /* Add to Favorites-50.png in Resources */,
 				CED4F8EC1E70F046000AF5A6 /* ContentsViewController.xib in Resources */,
-				CED748C31E672BEE00709B2E /* closet3.jpg in Resources */,
 				CE48AF201E50BB8500404543 /* huku.png in Resources */,
 				CE4B55B21E4B4BF000003686 /* Assets.xcassets in Resources */,
 				CE4B55B01E4B4BF000003686 /* Main.storyboard in Resources */,

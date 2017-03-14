@@ -128,7 +128,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
        var testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
 //      
        // Tag番号を使ってImageViewのインスタンス生成
-        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
+       let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
 //      // 画像配列の番号で指定された要素の名前の画像をUIImageとする
     //
         
@@ -200,7 +200,12 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     // Screenサイズに応じたセルサイズを返す
     // UICollectionViewDelegateFlowLayoutの設定が必要
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize:CGFloat = self.view.frame.size.width/2-2
+        let cellSize:CGFloat
+        if UIScreen.main.bounds.size.width > 500 {
+            cellSize = UIScreen.main.bounds.size.width / 4 - 2
+        } else {
+            cellSize = UIScreen.main.bounds.size.width / 2 - 2
+        }
         // 正方形で返すためにwidth,heightを同じにする
         return CGSize(width: cellSize, height: cellSize)
     }

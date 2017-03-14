@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "clothingApplication/EditViewController.swift"
-            timestampString = "510909316.719304"
+            timestampString = "511069415.012614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "textFieldShouldBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "clothingApplication/NewEditViewController.swift"
-            timestampString = "510909316.719304"
+            timestampString = "511090246.00543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
+            startingLineNumber = "509"
+            endingLineNumber = "509"
             landmarkName = "tapSAVE(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "clothingApplication/EditViewController.swift"
-            timestampString = "510909316.719304"
+            timestampString = "511069415.012614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

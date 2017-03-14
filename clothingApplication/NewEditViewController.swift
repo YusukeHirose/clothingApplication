@@ -150,41 +150,69 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         
             editImage2.image = UIImage(named: "noimages.png")
         
-           initImageView()
+//        // UIImage インスタンスの生成
+//        let image1:UIImage = UIImage(named:"closet3.jpg")!
+//        
+//        // UIImageView 初期化
+//        let backImageView = UIImageView(image:image1)
+//        
+//        // 画面の横幅を取得
+//        let screenWidth:CGFloat = self.formView.frame.size.width
+//        let screenHeight:CGFloat = self.formView.frame.size.height
+//        
+//        // 画像の幅・高さの取得
+//        width = image1.size.width
+//        height = image1.size.height
+//        
+//        // 画像サイズをスクリーン幅に合わせる
+//        scale = screenWidth / width
+//        let rect:CGRect = CGRect(x:0, y:10, width:width*scale, height:height*scale)
+//        // 画像の中心を画面の中心に設定
+//        backImageView.center = CGPoint(x:screenWidth/3, y:screenHeight/3)
+//        
+//        // UIImageViewのインスタンスをビューに追加
+//        self.formView.addSubview(backImageView)
+//        //画像最背面
+//        self.formView.sendSubview(toBack: backImageView)
+//        
+//        backImageView.alpha = 0.5
+//
+        
+         //  initImageView()
         
         read()
 
         
     }
 
-    private func initImageView(){
-        // UIImage インスタンスの生成
-        let image1:UIImage = UIImage(named:"closet3.jpg")!
-        
-        // UIImageView 初期化
-        let backImageView = UIImageView(image:image1)
-        
-        // 画面の横幅を取得
-        let screenWidth:CGFloat = self.formView.frame.size.width
-        let screenHeight:CGFloat = self.formView.frame.size.height
-        
-        // 画像の幅・高さの取得
-        width = image1.size.width
-        height = image1.size.height
-        
-        // 画像サイズをスクリーン幅に合わせる
-        scale = screenWidth / width
-        let rect:CGRect = CGRect(x:0, y:10, width:width*scale, height:height*scale)
-        // 画像の中心を画面の中心に設定
-        backImageView.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
-        
-        // UIImageViewのインスタンスをビューに追加
-        self.formView.addSubview(backImageView)
-        //画像最背面
-        self.formView.sendSubview(toBack: backImageView)
-        
-        backImageView.alpha = 0.5
-    }
+//    private func initImageView(){
+//        // UIImage インスタンスの生成
+//        let image1:UIImage = UIImage(named:"closet3.jpg")!
+//        
+//        // UIImageView 初期化
+//        let backImageView = UIImageView(image:image1)
+//        
+//        // 画面の横幅を取得
+//        let screenWidth:CGFloat = self.formView.frame.size.width
+//        let screenHeight:CGFloat = self.formView.frame.size.height
+//        
+//        // 画像の幅・高さの取得
+//        width = image1.size.width
+//        height = image1.size.height
+//        
+//        // 画像サイズをスクリーン幅に合わせる
+//        scale = screenWidth / width
+//        let rect:CGRect = CGRect(x:0, y:10, width:width*scale, height:height*scale)
+//        // 画像の中心を画面の中心に設定
+//        backImageView.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
+//        
+//        // UIImageViewのインスタンスをビューに追加
+//        self.formView.addSubview(backImageView)
+//        //画像最背面
+//        self.formView.sendSubview(toBack: backImageView)
+//        
+//        backImageView.alpha = 0.5
+//    }
     
     
     //textFieldにカーソルが当たったとき(入力開始)
