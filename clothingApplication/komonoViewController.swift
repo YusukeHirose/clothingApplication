@@ -75,7 +75,7 @@ class komonoViewController: UIViewController,UICollectionViewDataSource,UICollec
         
         print(photList2)
         
-        read()
+       // read()
     }
     
     func buttonTapped(sender: UIButton){
@@ -112,7 +112,7 @@ class komonoViewController: UIViewController,UICollectionViewDataSource,UICollec
         }catch{
             
         }
-        
+        myCollectionView.reloadData()
         
     }
     

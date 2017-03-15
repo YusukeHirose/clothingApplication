@@ -74,7 +74,7 @@ class jktViewController: UIViewController,UICollectionViewDataSource,UICollectio
         
         print(photList2)
         
-        read()
+       // read()
     }
     
     func buttonTapped(sender: UIButton){
@@ -112,7 +112,7 @@ class jktViewController: UIViewController,UICollectionViewDataSource,UICollectio
             
         }
         
-        
+        myCollectionView.reloadData()
     }
     
     

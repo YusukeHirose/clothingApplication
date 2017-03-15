@@ -142,6 +142,55 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         return true
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            wantArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            //AppDelegateを使う用意をしておく
+            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            
+            //エンティティを操作するためのオブジェクトを作成
+            let viewContext = appDelegate.persistentContainer.viewContext
+            let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+            
+            //削除するdateを取得
+            let namePredicte = NSPredicate(format: wantArray[indexPath.row])
+            // let namePredicte = NSPredicate(format: "phot", strURL)
+            request.predicate = namePredicte
+            
+            let fetchResults = try! viewContext.fetch(request)
+            for result: AnyObject in fetchResults {
+                let record = result as! NSManagedObject
+                
+                viewContext.delete(record)
+                do{
+                    
+                    try viewContext.save()}catch{
+                }
+                
+            }
+            
+        
+
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
+            self.wantArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        deleteButton.backgroundColor = UIColor.red
+        
+        return [deleteButton]
+    }
+
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

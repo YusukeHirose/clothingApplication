@@ -464,40 +464,42 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     
     
     
-    func launchCamera(_ sender: UIBarButtonItem) {
-        //カメラかどうか判別するための情報を取得
-        let camera = UIImagePickerControllerSourceType.camera
-        //このアプリが起動されているデバイスにカメラ機能がついているかどうか判定
-        if UIImagePickerController.isSourceTypeAvailable(camera){
-            let picker = UIImagePickerController()
-            picker.sourceType = camera
-            
-            picker.delegate = self
-            picker.sourceType = UIImagePickerControllerSourceType.camera
-            
-            self.present(picker,animated: true, completion: nil)
-        }
-        //UserDefaultから取り出す
-        // ユーザーデフォルトを用意する
-        let myDefault = UserDefaults.standard
-        
-        // データを取り出す
-        let strURL = myDefault.string(forKey: "selectedPhotoURL")
-        
-        if strURL != nil{
-            
-            let url = URL(string: strURL as String!)
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
-            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
-            let manager: PHImageManager = PHImageManager()
-            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
-                self.editImage2.image = image
-            }
-            
-        }
-        
-    }
     
+//    @IBAction func tapCamera(_ sender: UIBarButtonItem) {
+//    
+//        //カメラかどうか判別するための情報を取得
+//        let camera = UIImagePickerControllerSourceType.camera
+//        //このアプリが起動されているデバイスにカメラ機能がついているかどうか判定
+//        if UIImagePickerController.isSourceTypeAvailable(camera){
+//            let picker = UIImagePickerController()
+//            picker.sourceType = camera
+//            
+//            picker.delegate = self
+//            picker.sourceType = UIImagePickerControllerSourceType.camera
+//            
+//            self.present(picker,animated: true, completion: nil)
+//        }
+//        //UserDefaultから取り出す
+//        // ユーザーデフォルトを用意する
+//        let myDefault = UserDefaults.standard
+//        
+//        // データを取り出す
+//        let strURL = myDefault.string(forKey: "selectedPhotoURL")
+//        
+//        if strURL != nil{
+//            
+//            let url = URL(string: strURL as String!)
+//            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+//            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+//            let manager: PHImageManager = PHImageManager()
+//            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+//                self.editImage2.image = image
+//            }
+//            
+//        }
+//        
+//    }
+//    
     //保存ボタンタップで画像をcollectionViewに追加する&&collectionViewに戻る
    
     @IBAction func tapSAVE(_ sender: UIBarButtonItem) {

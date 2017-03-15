@@ -68,7 +68,7 @@ class PantsViewController: UIViewController,UICollectionViewDataSource,UICollect
 
         print(photList2)
         
-        read()
+       // read()
 
             }
 
@@ -102,7 +102,7 @@ class PantsViewController: UIViewController,UICollectionViewDataSource,UICollect
             
         }
         
-        
+        myCollectionView.reloadData()
     }
     
     var selectedImage: String = ""

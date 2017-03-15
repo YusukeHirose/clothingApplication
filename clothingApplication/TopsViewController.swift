@@ -35,7 +35,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewWillAppear(_ animated: Bool) {
          //Appdelegateにアクセスするための準備
         //let myApp = UIApplication.shared.delegate as! AppDelegate
-       // read()
+        read()
     }
     
     
@@ -74,7 +74,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
               print(photList2)
         
-      read()
+     // read()
     }
     
     func buttonTapped(sender: UIButton){
@@ -111,7 +111,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         }catch{
             
         }
-        
+        myCollectionView.reloadData()
         
     }
 

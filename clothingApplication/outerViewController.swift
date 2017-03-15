@@ -75,7 +75,7 @@ class outerViewController: UIViewController,UICollectionViewDataSource,UICollect
         
         print(photList2)
         
-        read()
+     //   read()
     }
     
     func buttonTapped(sender: UIButton){
@@ -113,7 +113,7 @@ class outerViewController: UIViewController,UICollectionViewDataSource,UICollect
             
         }
         
-        
+        myCollectionView.reloadData()
     }
     
     

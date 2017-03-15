@@ -225,6 +225,10 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
         
         read()
     }
+    
+    
+        
+//            
 }
 
 //既に存在するデータの読み込み処理
@@ -262,7 +266,7 @@ func read() {
     } catch {
     }
     //TableViewの再描画
-    //        myTableView.reloadData()
+           //myTableView.reloadData()
 }
 
 

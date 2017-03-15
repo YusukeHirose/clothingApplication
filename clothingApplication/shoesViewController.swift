@@ -76,7 +76,7 @@ class shoesViewController: UIViewController,UICollectionViewDataSource,UICollect
         
         print(photList2)
         
-        read()
+        //read()
     }
     
     func buttonTapped(sender: UIButton){
@@ -114,7 +114,7 @@ class shoesViewController: UIViewController,UICollectionViewDataSource,UICollect
             
         }
         
-        
+     myCollectionView.reloadData()
     }
     
     

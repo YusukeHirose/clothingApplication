@@ -471,39 +471,41 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
 
     
     
-    func launchCamera(_ sender: UIBarButtonItem) {
-        //カメラかどうか判別するための情報を取得
-        let camera = UIImagePickerControllerSourceType.camera
-        //このアプリが起動されているデバイスにカメラ機能がついているかどうか判定
-        if UIImagePickerController.isSourceTypeAvailable(camera){
-            let picker = UIImagePickerController()
-            picker.sourceType = camera
-            
-            picker.delegate = self
-            picker.sourceType = UIImagePickerControllerSourceType.camera
-
-            self.present(picker,animated: true, completion: nil)
-        }
-        //UserDefaultから取り出す
-        // ユーザーデフォルトを用意する
-        let myDefault = UserDefaults.standard
-        
-        // データを取り出す
-        let strURL = myDefault.string(forKey: "selectedPhotoURL")
-        
-        if strURL != nil{
-            
-            let url = URL(string: strURL as String!)
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
-            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
-            let manager: PHImageManager = PHImageManager()
-            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
-                self.editImage.image = image
-            }
-            
-        }
-        
-    }
+//    @IBAction func tapCamera(_ sender: UIBarButtonItem) {
+//    
+//    
+//        //カメラかどうか判別するための情報を取得
+//        let camera = UIImagePickerControllerSourceType.camera
+//        //このアプリが起動されているデバイスにカメラ機能がついているかどうか判定
+//        if UIImagePickerController.isSourceTypeAvailable(camera){
+//            let picker = UIImagePickerController()
+//            picker.sourceType = camera
+//            
+//            picker.delegate = self
+//            picker.sourceType = UIImagePickerControllerSourceType.camera
+//
+//            self.present(picker,animated: true, completion: nil)
+//        }
+//        //UserDefaultから取り出す
+//        // ユーザーデフォルトを用意する
+//        let myDefault = UserDefaults.standard
+//        
+//        // データを取り出す
+//        let strURL = myDefault.string(forKey: "selectedPhotoURL")
+//        
+//        if strURL != nil{
+//            
+//            let url = URL(string: strURL as String!)
+//            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+//            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+//            let manager: PHImageManager = PHImageManager()
+//            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+//                self.editImage.image = image
+//            }
+//            
+//        }
+//        
+//    }
     
     //保存ボタンタップで移動・追加
     @IBAction func tapSave(_ sender: UIBarButtonItem) {
@@ -546,8 +548,11 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                         let record = result as! NSManagedObject
        
                   //値のセット
-        
+                        if strURL != nil{
                         var photDate:String? = record.setValue(strURL, forKey: "phot") as? String
+                        }
+                        
+                        
                         var clothenameDate:String? = record.setValue(clotheField.text, forKey: "clothename")as? String
                         var sizeDate:String? =  record.setValue(sizeField.text, forKey: "size") as? String
                         var blandnameDate:String? = record.setValue(blandField.text, forKey: "blandname") as? String
@@ -559,26 +564,31 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                         
                         photlist.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,])
                         
-                        print("dateDate=\(dateDate)")
-                        //NewEditの登録内容読み込み
-                        dateField.text = "\(dateDate!)"
-                        clotheField.text = "\(clothenameDate!)"
-                        sizeField.text = "\(sizeDate!)"
-                        categoryField.text = "\(categoryDate!)"
-                        blandField.text = "\(blandnameDate!)"
-                        
+//                        print("dateDate=\(dateDate)")
+//                        //NewEditの登録内容読み込み
+//                        dateField.text = "\(dateDate!)"
+//                        clotheField.text = "\(clothenameDate!)"
+//                        sizeField.text = "\(sizeDate!)"
+//                        categoryField.text = "\(categoryDate!)"
+//                        blandField.text = "\(blandnameDate!)"
+//                        
                         var AImage: UIImage!
-                        if photDate != nil{
+                        if strURL != nil{
                             
-                            let url = URL(string: photDate as String!)
+                            
+                            let url = URL(string: strURL as String!)
                             let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
                             let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
                             let manager: PHImageManager = PHImageManager()
                             manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
                                 AImage = image
-                                self.strURL = photDate!
+                                self.strURL = strURL!
+                                
+                                
                             }
                             editImage.image = AImage
+                            
+                            
                         }
 
                         
