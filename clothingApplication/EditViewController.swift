@@ -245,8 +245,10 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             //キーボード表示
             return true
        case 2:
+            textViewShouldBeginEditing2()
             return true
        case 3:
+            textViewShouldBeginEditing2()
             return true
 //       case 4:
 //            return true
@@ -278,6 +280,16 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y: self.view.frame.size.height - self.baseView.frame.height)},completion:{finished in print("DatePickerが現れました")})
         
     }
+    
+    func textViewShouldBeginEditing2() {
+        
+        //フォーム全体を上に移動する
+        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 240)
+            
+        },completion:{finished in print("FormViewが上に移動しました")})
+        
+    }
+
     
     //DatePickerが載ったviewを隠す
     func closeDatePickerView(_sender:UIButton){UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y: self.view.frame.size.height)

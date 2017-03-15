@@ -66,11 +66,11 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 
                 let wantname:String? = result.value(forKey: "wantname") as? String
                 let wantbland:String? = result.value(forKey: "wantbland") as? String
-                let date: String? = result.value(forKey: "date") as? String
+                let scSelectedDate: String? = result.value(forKey: "date") as? String
                 let img: String? = result.value(forKey: "img") as? String
                 let wantprice: String? = result.value(forKey: "wantprice") as? String
                 
-                wantDic = ["wantname":wantname, "date":date, "wantbland":wantbland, "img":img, "wantprice":wantprice]
+                wantDic = ["wantname":wantname, "date":scSelectedDate, "wantbland":wantbland, "img":img, "wantprice":wantprice]
                 wantArray.append(wantDic)
                 print(wantArray)
                 
@@ -144,8 +144,8 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            wantArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            wantArray.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
             
             //AppDelegateを使う用意をしておく
             let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -153,29 +153,45 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             
             //エンティティを操作するためのオブジェクトを作成
             let viewContext = appDelegate.persistentContainer.viewContext
-            let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+            let request: NSFetchRequest<User> = User.fetchRequest()
             
-            //削除するdateを取得
-            let namePredicte = NSPredicate(format: wantArray[indexPath.row])
-            // let namePredicte = NSPredicate(format: "phot", strURL)
-            request.predicate = namePredicte
-            
-            let fetchResults = try! viewContext.fetch(request)
-            for result: AnyObject in fetchResults {
-                let record = result as! NSManagedObject
-                
-                viewContext.delete(record)
+//            //削除するdateを取得
+//            let namePredicte = NSPredicate(entityName: "date")
+//            
+//            //let namePredicte = NSPredicate(format: "phot", strURL)
+//            request.predicate = namePredicte
+//            
+//            let fetchResults = try! viewContext.fetch(request)
+//            for result: AnyObject in fetchResults {
+//                let record = result as! NSManagedObject
+//                
+//                viewContext.delete(record)
                 do{
+                    
+                        //削除するデータを取得
+                        var dic = wantArray[indexPath.row] as! NSDictionary
+                        request.predicate = NSPredicate(format:"date = %@", dic["date"] as! Date as CVarArg)
+                        let fetchResults = try! viewContext.fetch(request)
+                        //nilが入るかもしれないのでasに?をつける。
+                        for result: AnyObject in fetchResults {
+                            let record = result as! NSManagedObject
+                            //一行ずつ削除
+                            viewContext.delete(record)
+                        }
+                    
                     
                     try viewContext.save()}catch{
                 }
                 
+                    wantArray.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+            myTableView.reloadData()
             }
             
         
 
             
-        }
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

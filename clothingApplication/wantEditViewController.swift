@@ -20,6 +20,8 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
     
     @IBOutlet weak var priceTextField: UITextField!
     
+    
+    @IBOutlet weak var formView: UIView!
     var myTextField = NSArray() as! [String]
     var strURL: String = ""
     var textView: UITextView!
@@ -83,6 +85,10 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
     //キーボードが立ち上がるとき
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
+        //フォーム全体を上に移動する
+        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 280)
+            
+        },completion:{finished in print("FormViewが上に移動しました")})
         print(textField.tag)
         switch textField.tag {
         case 1:
@@ -96,6 +102,8 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
             return true
         }
     }
+    
+    
 
     //編集後の操作
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -228,7 +236,45 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
     
     
         
+//        let alertController = UIAlertController(title: "削除", message: "データを削除しました", preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction (title:"OK", style: .default, handler: {action in self.myOK()}))
+//        
+//        //アラートを表示する
+//        present(alertController,animated: true, completion: nil)
+//        
+//        
+        //AppDelegateを使う用意をしておく
+ //       let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
+//        //エンティティを操作するためのオブジェクトを作成
+//        let viewContext = appDelegate.persistentContainer.viewContext
+//        let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
+//        
+//        //削除するdateを取得
+//        let namePredicte = NSPredicate(format: "date = %@",scSelectedDate)
+//        // let namePredicte = NSPredicate(format: "phot", strURL)
+//        request.predicate = namePredicte
+//        
+//        let fetchResults = try! viewContext.fetch(request)
+//        for result: AnyObject in fetchResults {
+//            let record = result as! NSManagedObject
 //            
+//            viewContext.delete(record)
+//            do{
+//                
+//                try viewContext.save()}catch{
+//            }
+//            
+//        }
+//
+//        
+    
+        
+    
+    
+    func myOK(){}
+    
 }
 
 //既に存在するデータの読み込み処理
@@ -266,7 +312,7 @@ func read() {
     } catch {
     }
     //TableViewの再描画
-           //myTableView.reloadData()
+         //  myTableView.reloadData()
 }
 
 

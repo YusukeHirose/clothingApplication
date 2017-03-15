@@ -216,23 +216,30 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     
     
     //textFieldにカーソルが当たったとき(入力開始)
-    func textFieldShouldBeginEditing(_ textField2: UITextField) -> Bool {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        
+        
         print("textFieldShouldBeginEditing 発動された")
-        print(textField2.tag)
+        print(textField.tag)
         
         //TODO:キーボード、日付のViewを閉じる
         //キーボード
-        blandField2.resignFirstResponder()
-        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
-        })
-        
-        clotheField2.resignFirstResponder()
-        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
-        })
-        
-        sizeField2.resignFirstResponder()
-        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
-        })
+  //     blandField2.resignFirstResponder()
+    
+       
+//        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+//            
+//           
+//        })
+//        
+//        clotheField2.resignFirstResponder()
+//        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+//        })
+//        
+//        sizeField2.resignFirstResponder()
+//        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
+//        })
         
 //        priceField2.resignFirstResponder()
 //        UIView.animate(withDuration: 0.5, animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y:self.view.frame.size.height)}, completion: {finished in print("DatePickerを隠しました")
@@ -243,14 +250,17 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         
         //日付のview
         hideDatePickerView()
-        switch textField2.tag{
+        switch textField.tag{
         case 1:
             //タイトル
             //キーボード表示
             return true
+            
         case 2:
+            textViewShouldBeginEditing2()
             return true
         case 3:
+            textViewShouldBeginEditing2()
             return true
 //        case 4:
 //            return true
@@ -268,7 +278,12 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         }
         
         return true
-    }
+        }
+    
+    
+   
+    
+    
     
     //DatePickerのviewを隠す
     func hideDatePickerView(){
@@ -282,6 +297,19 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y: self.view.frame.size.height - self.baseView.frame.height)},completion:{finished in print("DatePickerが現れました")})
         
     }
+    
+    
+    //MARk:TextView
+    //TextViewにカーソルが当たったとき(入力開始)
+    func textViewShouldBeginEditing2() {
+        
+        //フォーム全体を上に移動する
+        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 300)
+            
+        },completion:{finished in print("FormViewが上に移動しました")})
+
+    }
+
     
     //DatePickerが載ったviewを隠す
     func closeDatePickerView(_sender:UIButton){UIView.animate(withDuration: 0.5,animations: {() -> Void in self.baseView.frame.origin = CGPoint(x:0,y: self.view.frame.size.height)
