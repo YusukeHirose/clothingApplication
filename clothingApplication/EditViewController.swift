@@ -416,7 +416,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
             let picker = UIImagePickerController()
-            picker.modalPresentationStyle = UIModalPresentationStyle.popover
+            //picker.modalPresentationStyle = UIModalPresentationStyle.popover
             picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
             picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             
@@ -546,15 +546,45 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                         let record = result as! NSManagedObject
        
                   //値のセット
-        record.setValue(strURL, forKey: "phot") as? String
-        record.setValue(clotheField.text, forKey: "clothename")
-        record.setValue(sizeField.text, forKey: "size")
-        record.setValue(blandField.text, forKey: "blandname")
-        record.setValue(selectedDate, forKey: "date") as? String
-        record.setValue(categoryField.text, forKey: "category")
-        record.setValue(df.string(from: Date()) ,forKey: "created_at") as? String
+        
+                        var photDate:String? = record.setValue(strURL, forKey: "phot") as? String
+                        var clothenameDate:String? = record.setValue(clotheField.text, forKey: "clothename")as? String
+                        var sizeDate:String? =  record.setValue(sizeField.text, forKey: "size") as? String
+                        var blandnameDate:String? = record.setValue(blandField.text, forKey: "blandname") as? String
+                        var dateDate:String? = record.setValue(selectedDate, forKey: "date") as? String
+                        var categoryDate:String? = record.setValue(categoryField.text, forKey: "category") as? String
+        var changeDate: String? = record.setValue(df.string(from: Date()) ,forKey: "created_at") as? String
         //  newRecord.setValue(priceField.text, forKey: "price") as? Int16
+                    
+                        
+                        photlist.append(["phot":editImage.image,"clothename":clotheField.text,"size":sizeField.text,"blandname":blandField.text,"date":dateField,"category":categoryField,])
+                        
+                        print("dateDate=\(dateDate)")
+                        //NewEditの登録内容読み込み
+                        dateField.text = "\(dateDate!)"
+                        clotheField.text = "\(clothenameDate!)"
+                        sizeField.text = "\(sizeDate!)"
+                        categoryField.text = "\(categoryDate!)"
+                        blandField.text = "\(blandnameDate!)"
+                        
+                        var AImage: UIImage!
+                        if photDate != nil{
+                            
+                            let url = URL(string: photDate as String!)
+                            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+                            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+                            let manager: PHImageManager = PHImageManager()
+                            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                                AImage = image
+                                self.strURL = photDate!
+                            }
+                            editImage.image = AImage
+                        }
+
+                        
                     }
+                
+                
                 
                            //レコードの即時保存
             try viewContext.save()
@@ -564,6 +594,9 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     
         //CoreDateからdateを読み込む処理
         read()
+        
+     
+
             }
     
     
@@ -597,7 +630,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         let request: NSFetchRequest<UserDate> = UserDate.fetchRequest()
         
             //削除するdateを取得
-            let namePredicte = NSPredicate(format: "date = %@",selectedCD)
+            let namePredicte = NSPredicate(format: "created_at = %@",selectedCD)
+           // let namePredicte = NSPredicate(format: "phot", strURL)
             request.predicate = namePredicte
 
             let fetchResults = try! viewContext.fetch(request)

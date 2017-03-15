@@ -557,11 +557,11 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
             // adjust the margin of each menu item to make them centered
             for (index, menuItem) in menuItems.enumerated() {
                //下３つコメントアウトしないとエラー
-                // let controllerTitle = controllerArray[index].title!
+                 let controllerTitle = controllerArray[index].title!
                 
-                //let itemWidthRect = controllerTitle.boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:menuItemFont], context: nil)
+                let itemWidthRect = controllerTitle.boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:menuItemFont], context: nil)
                 
-                //menuItemWidth = itemWidthRect.width
+                menuItemWidth = itemWidthRect.width
                 
                 var margin: CGFloat
                 if index == 0 {

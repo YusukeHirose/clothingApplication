@@ -172,7 +172,7 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
             let picker = UIImagePickerController()
-            picker.modalPresentationStyle = UIModalPresentationStyle.popover
+           // picker.modalPresentationStyle = UIModalPresentationStyle.popover
             picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
             picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             

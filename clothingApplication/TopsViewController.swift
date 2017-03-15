@@ -14,7 +14,7 @@ import Photos
 
 
 
-class TopsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class TopsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
    //画像ボタン作成
@@ -35,7 +35,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewWillAppear(_ animated: Bool) {
          //Appdelegateにアクセスするための準備
         //let myApp = UIApplication.shared.delegate as! AppDelegate
-        read()
+       // read()
     }
     
     
@@ -53,7 +53,7 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
         button.setImage(image, for: .normal)
         
         // Buttonの位置と大きさを設定
-        button.frame = CGRect(x:screenWidth/1.3, y:screenHeight/1.5-20, width:70, height:70)
+        button.frame = CGRect(x:screenWidth/1.3, y:screenHeight/1.6-20, width:70, height:70)
         
         button.alpha = 0.4
         
@@ -201,10 +201,13 @@ class TopsViewController: UIViewController,UICollectionViewDataSource,UICollecti
     // UICollectionViewDelegateFlowLayoutの設定が必要
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize:CGFloat
+       // let cellSize1:CGFloat
         if UIScreen.main.bounds.size.width > 500 {
             cellSize = UIScreen.main.bounds.size.width / 4 - 2
+          //  cellSize1 = UIScreen.main.bounds.size.height / 3 - 3
         } else {
             cellSize = UIScreen.main.bounds.size.width / 2 - 2
+           // cellSize1 = UIScreen.main.bounds.size.height / 3 - 3
         }
         // 正方形で返すためにwidth,heightを同じにする
         return CGSize(width: cellSize, height: cellSize)

@@ -14,7 +14,7 @@ import Photos
 
 
 
-class capViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class capViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
    
     
@@ -56,7 +56,7 @@ class capViewController: UIViewController,UICollectionViewDataSource,UICollectio
         button.setImage(image, for: .normal)
         
         // Buttonの位置と大きさを設定
-        button.frame = CGRect(x:screenWidth/1.3, y:screenHeight/1.5-20, width:70, height:70)
+        button.frame = CGRect(x:screenWidth/1.3, y:screenHeight/1.6-20, width:70, height:70)
         
         button.alpha = 0.4
         
@@ -203,10 +203,20 @@ class capViewController: UIViewController,UICollectionViewDataSource,UICollectio
     // Screenサイズに応じたセルサイズを返す
     // UICollectionViewDelegateFlowLayoutの設定が必要
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize:CGFloat = self.view.frame.size.width/2-2
+        let cellSize:CGFloat
+       // let cellSize1:CGFloat
+        if UIScreen.main.bounds.size.width > 500 {
+            cellSize = UIScreen.main.bounds.size.width / 4 - 2
+           // cellSize1 = UIScreen.main.bounds.size.height / 3 - 3
+        } else {
+            cellSize = UIScreen.main.bounds.size.width / 2 - 2
+            //cellSize1 = UIScreen.main.bounds.size.height / 3 - 3
+        }
+        
         // 正方形で返すためにwidth,heightを同じにする
         return CGSize(width: cellSize, height: cellSize)
     }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

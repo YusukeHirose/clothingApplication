@@ -405,13 +405,17 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         // 画像タップでライブラリを呼び出す
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
+            
             let picker = UIImagePickerController()
-            picker.modalPresentationStyle = UIModalPresentationStyle.popover
+           // picker.modalPresentationStyle = UIModalPresentationStyle.popover
             picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
             picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             
             //トリミング
             picker.allowsEditing = true
+            
+           
+
             
             self.present(picker, animated: true, completion: nil)
         }
@@ -526,6 +530,9 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         if categoryField2.text == "" {
             let alertController = UIAlertController(title: "Category", message: "categoryを選択してください。", preferredStyle: .alert)
             alertController.addAction(UIAlertAction (title:"OK", style: .default, handler: {action in self.myOK()}))
+            
+            alertController.popoverPresentationController?.sourceView = self.view
+            //alertController.popoverPresentationController?.sourceRect = self.view
             
             //アラートを表示する
             present(alertController,animated: true, completion: nil)
