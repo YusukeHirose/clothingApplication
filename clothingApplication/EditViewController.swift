@@ -91,7 +91,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
         categoryPicker.delegate = self
         
 
-        
+        diaryDatePicker.datePickerMode = .date
+        diaryDatePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
         //日付が変わったときのイベントをdatePickerに設定
         diaryDatePicker.addTarget(self, action: #selector(showDateSelected(sender:)), for: .valueChanged)
         

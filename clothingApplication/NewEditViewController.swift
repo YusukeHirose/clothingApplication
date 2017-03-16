@@ -91,6 +91,8 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
 
         
         //日付が変わったときのイベントをdatePickerに設定
+        diaryDatePicker.datePickerMode = .date
+        diaryDatePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
         diaryDatePicker.addTarget(self, action: #selector(showDateSelected(sender:)), for: .valueChanged)
        // categoryPicker.addTarget(self, action: #selector(showPickerSelected(sender:)), for: .valueChanged)
 
@@ -322,8 +324,10 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
         //フォーマット設定
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        //日付を文字列に変換
+        
+               //日付を文字列に変換
         var strSelectedDate = df.string(from:sender.date)
+        
         //dateFieldに値を表示
         dateField2.text = strSelectedDate
     }

@@ -144,49 +144,7 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            wantArray.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            //AppDelegateを使う用意をしておく
-            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            
-            
-            //エンティティを操作するためのオブジェクトを作成
-            let viewContext = appDelegate.persistentContainer.viewContext
-            let request: NSFetchRequest<User> = User.fetchRequest()
-            
-//            //削除するdateを取得
-//            let namePredicte = NSPredicate(entityName: "date")
-//            
-//            //let namePredicte = NSPredicate(format: "phot", strURL)
-//            request.predicate = namePredicte
-//            
-//            let fetchResults = try! viewContext.fetch(request)
-//            for result: AnyObject in fetchResults {
-//                let record = result as! NSManagedObject
-//                
-//                viewContext.delete(record)
-                do{
-                    
-                        //削除するデータを取得
-                        var dic = wantArray[indexPath.row] as! NSDictionary
-                        request.predicate = NSPredicate(format:"date = %@", dic["date"] as! Date as CVarArg)
-                        let fetchResults = try! viewContext.fetch(request)
-                        //nilが入るかもしれないのでasに?をつける。
-                        for result: AnyObject in fetchResults {
-                            let record = result as! NSManagedObject
-                            //一行ずつ削除
-                            viewContext.delete(record)
-                        }
-                    
-                    
-                    try viewContext.save()}catch{
-                }
-                
-                    wantArray.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-            myTableView.reloadData()
-            }
+           }
             
         
 
@@ -197,11 +155,48 @@ class want2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
+//            self.wantArray.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            
+            
+            do{
+               // let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "date")
+                
+                //AppDelegateを使う用意をしておく
+                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                //エンティティを操作するためのオブジェクトを作成
+                let viewContext = appDelegate.persistentContainer.viewContext
+                let request: NSFetchRequest<User> = User.fetchRequest()
+
+                
+                //削除するデータを取得
+                   var dic = self.wantArray[indexPath.row] as! NSDictionary
+                   request.predicate = NSPredicate(format:"date = %@", dic["date"] as! String as CVarArg)
+                let fetchResults = try! viewContext.fetch(request)
+                //nilが入るかもしれないのでasに?をつける。
+                for result: AnyObject in fetchResults {
+                    let record = result as! NSManagedObject
+                    //一行ずつ削除
+                    viewContext.delete(record)
+                }
+                
+                
+                try viewContext.save()}catch{
+            }
+            
             self.wantArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+           tableView.deleteRows(at: [indexPath], with: .fade)
+           self.myTableView.reloadData()
+//        
+//        
+    
+
+        
+        
         }
         deleteButton.backgroundColor = UIColor.red
-        
+    
         return [deleteButton]
     }
 

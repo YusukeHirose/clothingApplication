@@ -223,7 +223,7 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
             try viewContext.save()
             
             //前の画面に戻る
-            // navigationController?.popViewController(animated: true)
+            navigationController?.popViewController(animated: true)
         } catch {
         }
         let next = storyboard!.instantiateViewController(withIdentifier: "want2ViewController")
