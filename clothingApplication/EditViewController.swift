@@ -568,7 +568,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                         var clothenameDate:String? = record.setValue(clotheField.text, forKey: "clothename")as? String
                         var sizeDate:String? =  record.setValue(sizeField.text, forKey: "size") as? String
                         var blandnameDate:String? = record.setValue(blandField.text, forKey: "blandname") as? String
-                        var dateDate:String? = record.setValue(selectedDate, forKey: "date") as? String
+                        var dateDate:String? = record.setValue(dateField.text, forKey: "date") as? String
                         var categoryDate:String? = record.setValue(categoryField.text, forKey: "category") as? String
         var changeDate: String? = record.setValue(df.string(from: Date()) ,forKey: "created_at") as? String
         //  newRecord.setValue(priceField.text, forKey: "price") as? Int16

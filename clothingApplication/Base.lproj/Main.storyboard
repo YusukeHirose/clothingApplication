@@ -887,7 +887,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gWY-pw-TkT" id="MVX-k9-PTc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y6n-16-PoX">
@@ -1050,7 +1050,7 @@
                                         </connections>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a7O-Bv-omq">
-                                        <rect key="frame" x="8" y="26" width="359" height="333"/>
+                                        <rect key="frame" x="36" y="32" width="302" height="317"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="PyR-gC-5mJ" appends="YES" id="Ngw-db-uQK"/>
@@ -1084,19 +1084,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Wh1-AU-hrV" firstAttribute="leading" secondItem="Vss-WN-k2E" secondAttribute="leading" id="2ss-HS-KiF"/>
-                                    <constraint firstItem="Sbs-DG-3ld" firstAttribute="top" secondItem="a7O-Bv-omq" secondAttribute="bottom" constant="21" id="7FS-IR-ny8"/>
-                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="top" secondItem="9lr-cz-C4A" secondAttribute="top" constant="26" id="8AH-Lx-4Tz"/>
                                     <constraint firstItem="Wh1-AU-hrV" firstAttribute="trailing" secondItem="Vss-WN-k2E" secondAttribute="trailing" id="Bqd-yK-JEF"/>
-                                    <constraint firstAttribute="trailing" secondItem="a7O-Bv-omq" secondAttribute="trailing" constant="8" id="J8N-EL-6H2"/>
                                     <constraint firstAttribute="trailing" secondItem="Vss-WN-k2E" secondAttribute="trailing" constant="78" id="POy-Te-dXf"/>
                                     <constraint firstItem="Sbs-DG-3ld" firstAttribute="leading" secondItem="Vss-WN-k2E" secondAttribute="leading" id="PYi-ES-m7U"/>
-                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="leading" secondItem="9lr-cz-C4A" secondAttribute="leading" constant="8" id="Rrv-8c-NPG"/>
                                     <constraint firstItem="Vss-WN-k2E" firstAttribute="top" secondItem="Sbs-DG-3ld" secondAttribute="bottom" constant="20" id="Sjl-Qt-7vl"/>
-                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="trailing" secondItem="9lr-cz-C4A" secondAttribute="trailingMargin" id="X1a-Ay-rhA"/>
+                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="centerX" secondItem="Sbs-DG-3ld" secondAttribute="centerX" id="Xgu-xH-M5T"/>
+                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="leading" secondItem="9lr-cz-C4A" secondAttribute="leading" constant="36" id="Yj2-mK-Iin"/>
                                     <constraint firstItem="Vss-WN-k2E" firstAttribute="leading" secondItem="9lr-cz-C4A" secondAttribute="leading" constant="78" id="bab-im-ZrZ"/>
                                     <constraint firstItem="Wh1-AU-hrV" firstAttribute="top" secondItem="Vss-WN-k2E" secondAttribute="bottom" constant="24" id="drD-Pw-9Jl"/>
-                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="leading" secondItem="9lr-cz-C4A" secondAttribute="leading" constant="8" id="m29-V2-PdB"/>
-                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="top" secondItem="9lr-cz-C4A" secondAttribute="top" constant="26" id="nnr-Wq-v8T"/>
+                                    <constraint firstItem="a7O-Bv-omq" firstAttribute="top" secondItem="9lr-cz-C4A" secondAttribute="top" constant="32" id="grC-AR-qC1"/>
+                                    <constraint firstItem="Sbs-DG-3ld" firstAttribute="top" secondItem="a7O-Bv-omq" secondAttribute="bottom" constant="31" id="iBc-HG-FkP"/>
                                     <constraint firstAttribute="bottom" secondItem="Wh1-AU-hrV" secondAttribute="bottom" constant="89" id="qgB-Lf-kpK"/>
                                     <constraint firstItem="Sbs-DG-3ld" firstAttribute="trailing" secondItem="Vss-WN-k2E" secondAttribute="trailing" id="uKF-ih-7T9"/>
                                 </constraints>
@@ -1134,7 +1131,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1066.6666666666667" y="-1451.0869565217392"/>
+            <point key="canvasLocation" x="-1068" y="-1451.4242878560722"/>
         </scene>
         <!--want-->
         <scene sceneID="hEM-nb-bRH">
