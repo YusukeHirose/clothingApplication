@@ -306,7 +306,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
     func textViewShouldBeginEditing2() {
         
         //フォーム全体を上に移動する
-        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 300)
+        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 350)
             
         },completion:{finished in print("FormViewが上に移動しました")})
 
@@ -486,7 +486,7 @@ class NewEditViewController: UIViewController,UINavigationControllerDelegate, UI
             let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
             let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
             let manager: PHImageManager = PHImageManager()
-            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+            manager.requestImage(for: asset,targetSize: CGSize(width: 500, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
                 self.editImage2.image = image
                 
             }

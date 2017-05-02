@@ -86,7 +86,7 @@ class wantEditViewController: UIViewController,UITextFieldDelegate, UIImagePicke
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         //フォーム全体を上に移動する
-        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 280)
+        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 335)
             
         },completion:{finished in print("FormViewが上に移動しました")})
         print(textField.tag)

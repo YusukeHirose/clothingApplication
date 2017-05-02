@@ -285,7 +285,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
     func textViewShouldBeginEditing2() {
         
         //フォーム全体を上に移動する
-        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 240)
+        UIView.animate(withDuration: 1, animations: {() -> Void in self.formView.frame.origin = CGPoint(x:self.formView.frame.origin.x,y: self.formView.frame.origin.y - 350)
             
         },completion:{finished in print("FormViewが上に移動しました")})
         
@@ -404,12 +404,16 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                     let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
                     let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
                     let manager: PHImageManager = PHImageManager()
+                    var options:PHImageRequestOptions = PHImageRequestOptions()
+                    options.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
                     manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
                         AImage = image
                         self.strURL = photDate!
+                        self.editImage.image = AImage
                     }
-                    editImage.image = AImage
+                    //editImage.image = AImage
             }
+                
             }
         }catch{
             
@@ -435,6 +439,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             
             //トリミング
             picker.allowsEditing = true
+            
             
             self.present(picker, animated: true, completion: nil)
         }
@@ -475,6 +480,8 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             let manager: PHImageManager = PHImageManager()
             manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
                 self.editImage.image = image
+                
+               
                 
             }
             
@@ -593,7 +600,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                             let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
                             let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
                             let manager: PHImageManager = PHImageManager()
-                            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                            manager.requestImage(for: asset,targetSize: CGSize(width: 500, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
                                 AImage = image
                                 self.strURL = strURL!
                                 
@@ -615,6 +622,7 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
             
        }
     
+        self.dismiss(animated: true, completion: nil)
         //CoreDateからdateを読み込む処理
         read()
         
@@ -666,12 +674,13 @@ class EditViewController: UIViewController,UINavigationControllerDelegate,UIImag
                 
                     try viewContext.save()}catch{
                 }
-        
+         
         }
-        
+       
     }
     
     func myOK(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
